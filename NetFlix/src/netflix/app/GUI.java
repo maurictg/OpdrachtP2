@@ -1,9 +1,7 @@
-package netnix.app;
+package netflix.app;
 
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.*;
 import javafx.scene.layout.*;
 import javafx.stage.*;
 

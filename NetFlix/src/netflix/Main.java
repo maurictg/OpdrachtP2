@@ -1,5 +1,5 @@
-package netnix;
-import netnix.app.GUI;
+package netflix;
+import netflix.app.GUI;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
