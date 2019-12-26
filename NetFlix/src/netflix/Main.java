@@ -1,13 +1,12 @@
 package netflix;
-import netflix.app.GUI;
-
-import javafx.application.Application;
 import javafx.stage.Stage;
+import netflix.app.Login;
+import javafx.application.Application;
 
-public class Main extends Application {
+public abstract class Main extends Application {
 
-    @Override
-    public void start(Stage stage) {
-        new GUI(stage, "Netflix Statistics").run();
+    public static void main(String[] args) {
+
+        Application.launch(Login.class);
     }
 }
