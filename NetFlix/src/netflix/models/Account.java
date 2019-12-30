@@ -8,8 +8,12 @@ public class Account extends Table {
     public int id;
     public String username;
     public String password;
-    public String email;
+    public String city;
+    public String street;
+    public String number;
+    public String extension;
     public String phone;
+    public String age;
 
     public Account() {
         super("accounts");
