@@ -142,7 +142,7 @@ public class Database {
             ctor.setAccessible(true);
 
             while (rs.next()){ //get one row
-                //CLONE OBJECT HIER
+                //CLONE OBJECT HERE
                 Object o = ctor.newInstance();
 
                 for (Field f: o.getClass().getFields()){
@@ -160,7 +160,7 @@ public class Database {
                             f.set(o, parse(rs.getTime(f.getName())));
                         }
                     } catch (Exception ignored){
-
+                        System.out.println("Can't parse DB column.");
                     }
                 }
 
