@@ -1,5 +1,5 @@
 package netflix;
-import javafx.stage.Stage;
+
 import netflix.app.Login;
 import javafx.application.Application;
 
