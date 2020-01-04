@@ -1,10 +1,9 @@
 package netflix.app;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -21,46 +20,68 @@ public class Login extends Application {
     }
 
     private void login() {
-        GridPane gPane = new GridPane();
+        GridPane pane = new GridPane();
 
-        // Alle verschillende onderdelen maken
-        Label headerLabel = new Label("LOGIN");
-        Label usernameLabel = new Label("Name: ");
-        Label passwordLabel = new Label("Password: ");
-        Label returnLabel = new Label(" ");
+        Label lblHdr = new Label("Login");
+        lblHdr.getStyleClass().add("title");
 
-        TextField usernameField = new TextField();
-        TextField passwordField = new TextField();
+        //pane.add(Node, colIndex, rowIndex, colSpan, rowSpan):
+        pane.add(lblHdr, 1, 1, 2, 1);
+        pane.setAlignment(Pos.TOP_CENTER);
 
-        Button loginButton = new Button("Login");
+        Label lblUn = new Label("Username: ");
+        Label lblPw = new Label("Password: ");
+        Label lblReturn = new Label(" ");
+
+        TextField tbUn = new TextField();
+        PasswordField tbPw = new PasswordField();
+
+        Button btnLogin = new Button("Login");
+
+        GridPane gp = new GridPane();
 
         // Alle onderdelen toevoegen aan de GridPane
-        gPane.add(headerLabel, 1, 1);
-        gPane.add(usernameLabel, 1, 2);
-        gPane.add(passwordLabel, 1, 3);
-        gPane.add(usernameField, 2, 2);
-        gPane.add(passwordField, 2, 3);
-        gPane.add(loginButton, 2, 4);
+        gp.add(lblUn, 1, 2);
+        gp.add(lblPw, 1, 3);
+        gp.add(tbUn, 2, 2);
+        gp.add(tbPw, 2, 3);
+        gp.add(btnLogin, 2, 4);
 
         // geometry
-        gPane.setVgap(15);
-        gPane.setHgap(15);
+        gp.setVgap(15);
+        gp.setHgap(15);
+
 
         // De werking van de buttons
-        loginButton.setOnAction(event -> {
+        btnLogin.setOnAction(event -> {
             if (this.checkPassword()) {
                 this.home.start(stage);
             }
 
-            returnLabel.setText("Wrong username or password, try again");
+            lblReturn.setText("Wrong username or password, try again");
         });
 
+        /*Dit is een andere manier voor een event.
+        loginButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+
+        });*/
+
+        //pane.add(Node, colIndex, rowIndex, colSpan, rowSpan):
+        pane.add(gp, 1,2);
+
+        //CSS class toekennen
+        pane.getStyleClass().add("body");
+
         // Deze pagina laten zien d.m.v. de methode 'run()'
-        this.run(new Scene(gPane, 600, 400));
+        this.run(new Scene(pane, 600, 400));
     }
 
     private void run(Scene scene) {
         stage.setScene(scene);
+        //CSS inladen
+        String path = this.getClass().getResource("style.css").toExternalForm();
+        scene.getStylesheets().add(path);
+
         stage.setTitle("Netflix Statistics");
         stage.show();
     }
