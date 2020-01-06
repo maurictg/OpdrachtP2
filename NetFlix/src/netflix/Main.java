@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import netflix.controllers.LoginController;
 
+import java.io.IOException;
+
 public class Main extends Application {
 
     @Override
@@ -25,7 +27,7 @@ public class Main extends Application {
             stage.setScene(new Scene(root, 600, 400));
             stage.show();
 
-        }catch (Exception e){
+        }catch (IOException e){
             System.out.println("NOT FOUND");
         }
     }

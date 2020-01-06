@@ -1,5 +1,8 @@
-
+NetFlix/out/
+Netflix/.idea/
+.idea/
 NetFlix/.idea/libraries/lib.xml
 NetFlix/.idea/libraries/bin.xml
 NetFlix/NetFlix.iml
 NetFlix/.idea/workspace.xml
+*.class

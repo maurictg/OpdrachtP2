@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.LoginController">
+<AnchorPane fx:controller="netflix.controllers.LoginController" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
    <children>
 
       <Label fx:id="lblTitle" layoutX="160.0" layoutY="14.0" text="NetFlix Stats login" textAlignment="CENTER" textFill="#14cd0e">
