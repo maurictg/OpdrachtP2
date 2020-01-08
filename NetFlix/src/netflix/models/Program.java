@@ -1,13 +1,15 @@
 package netflix.models;
 
-public class Program {
+import com.maurict.orm.Table;
 
-    private String title;
-    private int lengthInMinutes;
+public class Program extends Table {
 
-    public Program(String title, int lengthInMinutes){
-        this.title = title;
-        this.lengthInMinutes = lengthInMinutes;
+    public int id;
+    public String title;
+    public int lengthInMinutes;
+
+    public Program(){
+        super("Program");
     }
 
 }

@@ -1,3 +1,9 @@
+/*
+ * Table.java
+ * (C) 2020 maurictg
+ * Licenced under MIT licence
+ */
+
 package com.maurict.orm;
 
 import java.util.*;
@@ -105,7 +111,7 @@ public class Table {
     public Table innerJoin(String table, String foreignKey){ return innerJoin(table, pk, foreignKey); }
     public Table innerJoin(String table, String primaryKey, String foreignKey) { return join("INNER", table, primaryKey, foreignKey); }
     private Table join(String type,String table, String primaryKey, String foreignKey){
-        qB.append(type).append(" JOIN ").append(table).append(" ON ").append(table).append(".").append(foreignKey).append("=").append(name).append(primaryKey);
+        qB.append(" ").append(type).append(" JOIN ").append(table).append(" ON ").append(table).append(".").append(foreignKey).append("=").append(name).append(".").append(primaryKey);
         return this;
     }
 
@@ -118,6 +124,7 @@ public class Table {
     //In-model helper functions for db class
     public boolean delete() throws Exception { test(); return db.remove(this); }
     public boolean save() throws Exception { test(); return db.update(this); }
+    public boolean add(Object object) throws Exception { test(); return db.add(object); }
 
     public ArrayList<Object> toList() throws Exception{
         test();

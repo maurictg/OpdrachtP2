@@ -5,29 +5,27 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:controller="netflix.controllers.LoginController" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-
-      <Label fx:id="lblTitle" layoutX="160.0" layoutY="14.0" text="NetFlix Stats login" textAlignment="CENTER" textFill="#14cd0e">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.LoginController">
+      <Label fx:id="lblTitle" layoutX="138.0" layoutY="39.0" text="NetFlix Statistix login" textAlignment="CENTER" textFill="RED">
          <font>
             <Font size="35.0" />
          </font>
       </Label>
 
-      <TextField fx:id="tbUn" layoutX="142.0" layoutY="99.0" prefHeight="40.0" prefWidth="315.0" promptText="Username">
+      <TextField fx:id="tbUn" layoutX="138.0" layoutY="136.0" prefHeight="40.0" prefWidth="324.0" promptText="Username" style="-fx-background-color: #777; -fx-text-fill: #FFF;">
          <font>
             <Font size="16.0" />
          </font>
       </TextField>
 
-      <PasswordField fx:id="tbPw" layoutX="142.0" layoutY="146.0" prefHeight="40.0" prefWidth="315.0" promptText="Password">
+      <PasswordField fx:id="tbPw" layoutX="138.0" layoutY="200.0" prefHeight="40.0" prefWidth="324.0" promptText="Password" style="-fx-background-color: #777; -fx-text-fill: #FFF;">
          <font>
             <Font size="16.0" />
          </font>
       </PasswordField>
 
       <!-- Je kunt bij de button ook onClick="#btnLogin_click" gebruiken -->
-      <Button fx:id="btnLogin" defaultButton="true" layoutX="248.0" layoutY="207.0" mnemonicParsing="false" onAction="#btnLogin_click" prefHeight="40.0" prefWidth="99.0" text="Login">
+      <Button fx:id="btnLogin" defaultButton="true" layoutX="232.0" layoutY="285.0" mnemonicParsing="false" onAction="#btnLogin_click" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #444;" text="Login" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -35,7 +33,4 @@
             <Glow />
          </effect>
       </Button>
-
-      <Label fx:id="lblReturn" layoutX="271.0" layoutY="261.0" text="Welcome!" textFill="RED" />
-   </children>
 </AnchorPane>

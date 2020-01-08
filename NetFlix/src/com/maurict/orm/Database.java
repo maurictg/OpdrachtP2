@@ -1,3 +1,9 @@
+/*
+ * Table.java
+ * (C) 2020 maurictg
+ * Licenced under MIT licence
+ */
+
 package com.maurict.orm;
 
 import java.lang.reflect.*;
