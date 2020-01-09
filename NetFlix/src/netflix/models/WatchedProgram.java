@@ -8,9 +8,7 @@ public class WatchedProgram extends Table {
     public int id; //primary key
     public int programId; //foreign key: Program.id
     public int profileId; //foreign key: Profile.id
-
-    //It should be better if we store the time and calculate the percentage
-    public int percentageWatched;
+    public int timeWatched;
 
     //1-1 relations
     private Program program;
@@ -20,9 +18,13 @@ public class WatchedProgram extends Table {
     private boolean includesProfile;
 
     public WatchedProgram() {
-        super("WatchedProgram");
+        super("WatchedPrograms");
         this.includesProfile = false;
         this.includesProgram = false;
+    }
+
+    public double getPercentageWatched() {
+        return (double)((this.timeWatched / this.getProgram().time) * 100);
     }
 
     public Program getProgram() {

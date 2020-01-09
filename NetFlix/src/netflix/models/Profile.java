@@ -17,7 +17,7 @@ public class Profile extends Table {
     private boolean includesAccount;
 
     public Profile() {
-        super("Profile");
+        super("Profiles");
         this.programsWatched = new ArrayList<>();
         this.includesProgramsWatched = false;
         this.includesAccount = false;
@@ -62,10 +62,10 @@ public class Profile extends Table {
     }
 
     //Helper function
-    public boolean addProgramWatched(Program program, int percentageWatched){
+    public boolean addProgramWatched(Program program, int timeWatched){
         WatchedProgram wp = new WatchedProgram();
         wp.programId = program.id;
-        wp.percentageWatched = percentageWatched;
+        wp.timeWatched = timeWatched;
         return addProgramWatched(wp);
     }
 

@@ -2,6 +2,7 @@ package netflix.models;
 
 import com.maurict.orm.Table;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Account extends Table {
@@ -14,17 +15,15 @@ public class Account extends Table {
     public String street;
     public int number;
     public String extension;
-    public int phone;
-
-    //(!) it would be better to store the date of birth
-    public int age;
+    public String phone;
+    public LocalDate birthdate;
 
     //This one needs to be private, because you can't store ArrayLists in the database
     private ArrayList<Profile> profiles;
     private boolean includesProfiles;
 
     public Account() {
-        super("accounts");
+        super("Accounts");
         this.profiles = new ArrayList<>();
         this.includesProfiles = false;
     }

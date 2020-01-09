@@ -9,9 +9,7 @@ public class Serie extends Table {
 
     public int id;
     public String serieName;
-
-    //It would be better if we store the id
-    public String recommendedSerie;
+    public int recommendedSerie; //id
 
     private ArrayList<Program> episodeList;
     private boolean includesEpisodeList;

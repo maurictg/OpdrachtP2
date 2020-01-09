@@ -147,7 +147,7 @@ public class Database {
             assert ctor != null;
             ctor.setAccessible(true);
 
-            while (rs.next()){ //get one row
+            while (rs.next()) { //get one row
                 //CLONE OBJECT HERE
                 Object o = ctor.newInstance();
 
