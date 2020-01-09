@@ -33,7 +33,7 @@ public class Profile extends Table {
 
     public void includeProgramsWatched(){
         try {
-            ArrayList<Object> pws = new WatchedProgram().where("profileId",this.id).toList();
+            ArrayList<Object> pws = new WatchedProgram().select().where("profileId",this.id).toList();
             for (Object p: pws) {
                 programsWatched.add((WatchedProgram)p);
             }

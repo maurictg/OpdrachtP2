@@ -1,5 +1,6 @@
 package netflix.models;
 
+import com.maurict.orm.Database;
 import com.maurict.orm.Table;
 import netflix.models.SeriesEpisode;
 
@@ -30,7 +31,7 @@ public class Serie extends Table {
 
     public void includeEpisodeList(){
         try {
-            ArrayList<Object> pws = new SeriesEpisode().where("serieId",this.id).toList();
+            ArrayList<Object> pws = new SeriesEpisode().select().where("serieId",this.id).toList();
             for (Object p: pws) {
                 episodeList.add(((SeriesEpisode)p).getProgram());
             }
@@ -47,5 +48,28 @@ public class Serie extends Table {
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public boolean addEpisode(Program p) {
+        //If id = 0, the program is not filled so must be created
+        try{
+            int id = p.id;
+            if(id == 0) {
+                Database.global.add(p);
+                id = new Program().select().where("title",p.title).and("time",p.time).firstInt();
+            }
+
+            p.id = id;
+            SeriesEpisode wp = new SeriesEpisode();
+            wp.programId = id;
+            wp.serieId = this.id;
+            Database.global.add(wp);
+            episodeList.add(p);
+            return true;
+        } catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+
     }
 }
