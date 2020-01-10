@@ -5,9 +5,8 @@ import netflix.models.Program;
 
 public class Film extends Table {
 
-    public int id;
+    public int filmId;
     public int programId;
-    public int ageIndication;
 
     //1-1 relation = always get
     private Program program;

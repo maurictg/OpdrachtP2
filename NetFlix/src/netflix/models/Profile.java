@@ -6,9 +6,10 @@ import java.util.ArrayList;
 public class Profile extends Table {
 
     //database fields
-    public int id;
+    public int profileId;
     public int accountId;
     public String profileName;
+    public int age;
 
     private ArrayList<WatchedProgram> programsWatched;
     private boolean includesProgramsWatched;
@@ -33,7 +34,7 @@ public class Profile extends Table {
 
     public void includeProgramsWatched(){
         try {
-            ArrayList<Object> pws = new WatchedProgram().select().where("profileId",this.id).toList();
+            ArrayList<Object> pws = new WatchedProgram().select().where("profileId",this.profileId).toList();
             for (Object p: pws) {
                 programsWatched.add((WatchedProgram)p);
             }
@@ -64,14 +65,14 @@ public class Profile extends Table {
     //Helper function
     public boolean addProgramWatched(Program program, int timeWatched){
         WatchedProgram wp = new WatchedProgram();
-        wp.programId = program.id;
+        wp.programId = program.programId;
         wp.timeWatched = timeWatched;
         return addProgramWatched(wp);
     }
 
     public boolean addProgramWatched(WatchedProgram watchedProgram){
         try{
-            watchedProgram.profileId = this.id;
+            watchedProgram.profileId = this.profileId;
             //add to database
             this.add(watchedProgram);
             this.programsWatched.add(watchedProgram);

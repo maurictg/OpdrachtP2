@@ -2,15 +2,14 @@ package netflix.models;
 
 import com.maurict.orm.Database;
 import com.maurict.orm.Table;
-import netflix.models.SeriesEpisode;
 
 import java.util.ArrayList;
 
 public class Serie extends Table {
 
-    public int id;
+    public int serieId;
     public String serieName;
-    public int recommendedSerie; //id
+    public int recommendedSerie; //accountId
 
     private ArrayList<Program> episodeList;
     private boolean includesEpisodeList;
@@ -31,7 +30,7 @@ public class Serie extends Table {
 
     public void includeEpisodeList(){
         try {
-            ArrayList<Object> pws = new SeriesEpisode().select().where("serieId",this.id).toList();
+            ArrayList<Object> pws = new SeriesEpisode().select().where("serieId",this.serieId).toList();
             for (Object p: pws) {
                 episodeList.add(((SeriesEpisode)p).getProgram());
             }
@@ -40,8 +39,8 @@ public class Serie extends Table {
             ArrayList<Object> programs =
                     new Program().select()
                             .innerJoin("ProgramSeries","programId")
-                            .raw(" INNER JOIN Series ON Series.id = ProgramSeries.id")
-                            .where("id",this.id)
+                            .raw(" INNER JOIN Series ON Series.accountId = ProgramSeries.accountId")
+                            .where("accountId",this.accountId)
                             .toList();*/
 
             this.includesEpisodeList = true;
@@ -51,18 +50,18 @@ public class Serie extends Table {
     }
 
     public boolean addEpisode(Program p) {
-        //If id = 0, the program is not filled so must be created
+        //If accountId = 0, the program is not filled so must be created
         try{
-            int id = p.id;
+            int id = p.programId;
             if(id == 0) {
                 Database.global.add(p);
                 id = new Program().select().where("title",p.title).and("time",p.time).firstInt();
             }
 
-            p.id = id;
+            p.programId = id;
             SeriesEpisode wp = new SeriesEpisode();
             wp.programId = id;
-            wp.serieId = this.id;
+            wp.serieId = this.serieId;
             Database.global.add(wp);
             episodeList.add(p);
             return true;

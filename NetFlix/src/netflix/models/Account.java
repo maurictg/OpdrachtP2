@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Account extends Table {
 
     //Field names in the database
-    public int id;
+    public int accountId;
     public String accountName;
     public String password;
     public String city;
@@ -38,7 +38,7 @@ public class Account extends Table {
 
     public void includeProfiles(){
         try{
-            ArrayList<Object> profiles = new Profile().select().where("accountId",this.id).toList();
+            ArrayList<Object> profiles = new Profile().select().where("accountId",this.accountId).toList();
             for (Object p : profiles){
                 this.profiles.add((Profile)p);
             }
@@ -55,7 +55,7 @@ public class Account extends Table {
         }
 
         try{
-            return new Profile().selectCount().where("accountId",this.id).firstInt();
+            return new Profile().selectCount().where("accountId",this.accountId).firstInt();
         } catch (Exception e){
             e.printStackTrace();
             return -1;

@@ -4,9 +4,10 @@ import com.maurict.orm.Table;
 
 public class SeriesEpisode extends Table {
 
-    public int id;
+    public int seriesEpisodeId;
     public int programId;
     public int serieId;
+    public int episodeNumber;
 
     private Serie serie;
     private Program program;
