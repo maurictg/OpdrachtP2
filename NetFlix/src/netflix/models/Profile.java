@@ -18,7 +18,7 @@ public class Profile extends Table {
     private boolean includesAccount;
 
     public Profile() {
-        super("Profiles");
+        super("Profiles", "profileId");
         this.programsWatched = new ArrayList<>();
         this.includesProgramsWatched = false;
         this.includesAccount = false;

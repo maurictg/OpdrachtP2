@@ -13,7 +13,8 @@ public class Program extends Table {
 
 
     public Program(){
-        super("Programs");
+        super("Programs", "programId");
     }
+
 
 }

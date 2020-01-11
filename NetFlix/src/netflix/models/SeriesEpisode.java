@@ -16,7 +16,7 @@ public class SeriesEpisode extends Table {
     private boolean includesProgram;
 
     public SeriesEpisode(){
-        super("ProgramSeries");
+        super("ProgramSeries", "seriesEpisodeId");
         this.includesSerie = false;
         this.includesProgram = false;
     }
@@ -56,4 +56,6 @@ public class SeriesEpisode extends Table {
             e.printStackTrace();
         }
     }
+
+
 }

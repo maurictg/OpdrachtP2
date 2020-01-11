@@ -4,6 +4,7 @@ import com.maurict.orm.Database;
 import com.maurict.orm.Table;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Serie extends Table {
 
@@ -14,25 +15,25 @@ public class Serie extends Table {
     private ArrayList<Program> episodeList;
     private boolean includesEpisodeList;
 
-    public Serie(){
-        super("Series");
+    public Serie() {
+        super("Series", "serieId");
         this.episodeList = new ArrayList<>();
         this.includesEpisodeList = false;
     }
 
     public ArrayList<Program> getEpisodeList() {
-        if(!includesEpisodeList){
+        if (!includesEpisodeList) {
             this.includeEpisodeList();
         }
 
         return episodeList;
     }
 
-    public void includeEpisodeList(){
+    public void includeEpisodeList() {
         try {
-            ArrayList<Object> pws = new SeriesEpisode().select().where("serieId",this.serieId).toList();
-            for (Object p: pws) {
-                episodeList.add(((SeriesEpisode)p).getProgram());
+            ArrayList<Object> pws = new SeriesEpisode().select().where("serieId", this.serieId).toList();
+            for (Object p : pws) {
+                episodeList.add(((SeriesEpisode) p).getProgram());
             }
 
             /* //This must be better because this takes 1 query with innerJoin instead of 2, but we should have to test this
@@ -44,18 +45,18 @@ public class Serie extends Table {
                             .toList();*/
 
             this.includesEpisodeList = true;
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public boolean addEpisode(Program p) {
         //If accountId = 0, the program is not filled so must be created
-        try{
+        try {
             int id = p.programId;
-            if(id == 0) {
+            if (id == 0) {
                 Database.global.add(p);
-                id = new Program().select().where("title",p.title).and("time",p.time).firstInt();
+                id = new Program().select().where("title", p.title).and("time", p.time).firstInt();
             }
 
             p.programId = id;
@@ -65,10 +66,10 @@ public class Serie extends Table {
             Database.global.add(wp);
             episodeList.add(p);
             return true;
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
-
     }
 }
+

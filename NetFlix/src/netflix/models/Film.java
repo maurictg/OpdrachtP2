@@ -13,7 +13,7 @@ public class Film extends Table {
 
 
     public Film() {
-        super("Films");
+        super("Films", "filmId");
 
         try{
             this.program = (Program)new Program().find(programId);

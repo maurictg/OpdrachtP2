@@ -23,7 +23,7 @@ public class Account extends Table {
     private boolean includesProfiles;
 
     public Account() {
-        super("Accounts");
+        super("Accounts", "accountId");
         this.profiles = new ArrayList<>();
         this.includesProfiles = false;
     }
