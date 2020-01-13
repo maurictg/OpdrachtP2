@@ -5,7 +5,7 @@ import netflix.models.Program;
 
 public class WatchedProgram extends Table {
 
-    public int wachtedPogramId; //primary key
+    public int watchedProgramId; //primary key
     public int programId; //foreign key: Program.accountId
     public int profileId; //foreign key: Profile.accountId
     public int timeWatched;

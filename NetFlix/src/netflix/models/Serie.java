@@ -33,7 +33,7 @@ public class Serie extends Table {
         try {
             ArrayList<Object> pws = new SeriesEpisode().select().where("serieId", this.serieId).toList();
             for (Object p : pws) {
-                episodeList.add(((SeriesEpisode) p).getProgram());
+                episodeList.add(((SeriesEpisode)p).getProgram());
             }
 
             /* //This must be better because this takes 1 query with innerJoin instead of 2, but we should have to test this
