@@ -1,23 +1,27 @@
 package netflix.controllers;
 
 import javafx.fxml.FXML;
-
 import javafx.event.ActionEvent;
 
 public class HomeController extends Controller {
 
-    @Override
-    void onLoad() {
-
+    @FXML
+    public void btnAbout_Click() {
+        this.show("About");
     }
 
     @FXML
-    public void exitApp(ActionEvent e){
+    public void btnExit_Click(ActionEvent e){
         System.exit(0);
     }
 
     @FXML
     public void btnNewAccount_Click() {
-        this.show("Account", 1000, 600);
+        this.show("Account");
+    }
+
+    @FXML
+    public void btnViews_Click() {
+        this.show("Views");
     }
 }

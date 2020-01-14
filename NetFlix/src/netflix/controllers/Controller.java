@@ -23,8 +23,8 @@ public class Controller implements Initializable {
     }
 
     //This are helper methods (in C# we have optional parameters)
-    public void show(String name) { show(name,600,400); }
-    public void show(String name, String title) { show(name,title,600,400); }
+    public void show(String name) { show(name,900,600); }
+    public void show(String name, String title) { show(name,title,900,600); }
     public void show(String name, String title, int width, int height){
         stage.setTitle(title);
         show(name, width, height);

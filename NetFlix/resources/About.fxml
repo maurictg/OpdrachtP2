@@ -1,20 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="About">
+<AnchorPane opacity="0.95" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #333;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.AboutController">
 
-    <MenuBar>
+    <MenuBar layoutX="14.0" layoutY="14.0">
         <Menu text="Program">
-            <MenuItem text="About" />
+            <MenuItem fx:id="btnAbout" onAction="#btnAbout_Click" text="About" />
             <SeparatorMenuItem />
-            <MenuItem onAction="#exitApp" text="Exit" />
+            <MenuItem fx:id="btnExit" onAction="#btnExit_Click" text="Exit" />
         </Menu>
     </MenuBar>
-   <ButtonBar layoutX="189.0" layoutY="244.0" prefHeight="40.0" prefWidth="200.0" />
+   <GridPane layoutX="83.0" layoutY="210.0" prefHeight="212.0" prefWidth="304.0">
+     <columnConstraints>
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="111.0" />
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="193.0" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="85.0" vgrow="SOMETIMES" />
+       <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+      <children>
+         <Label text="Authors" textFill="#e8e6e6">
+            <font>
+               <Font size="16.0" />
+            </font></Label>
+         <Label text="Class" textFill="#e8e6e6" GridPane.rowIndex="1">
+            <font>
+               <Font size="16.0" />
+            </font></Label>
+         <TextArea opacity="0.8" prefHeight="200.0" prefWidth="200.0" text="Maurice Golverdingen&#10;Lauran van Ekeren&#10;Aart Pieterse" GridPane.columnIndex="1">
+            <font>
+               <Font size="16.0" />
+            </font></TextArea>
+         <TextField opacity="0.8" text="23INVT1D" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      </children>
+   </GridPane>
+   <Label layoutX="98.0" layoutY="113.0" text="About" textFill="RED">
+      <font>
+         <Font size="30.0" />
+      </font></Label>
+   <Button fx:id="btnBack" layoutX="727.0" layoutY="497.0" mnemonicParsing="false" onAction="#btnBack_Click" prefHeight="45.0" prefWidth="98.0" style="-fx-background-color: #444;" text="Back" textFill="WHITE">
+      <font>
+         <Font size="16.0" />
+      </font>
+      <effect>
+         <Glow />
+      </effect>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Button>
 </AnchorPane>

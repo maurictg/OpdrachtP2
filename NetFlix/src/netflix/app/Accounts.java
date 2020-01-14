@@ -60,18 +60,6 @@ public class Accounts {
         grid.setVgap(5);
 
         // button functionality
-        numberText.lengthProperty().addListener(new ChangeListener<>() {
-
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                if (newValue.intValue() > oldValue.intValue()) {
-                    char ch = numberText.getText().charAt(oldValue.intValue());
-
-                    if (!(ch >= '0' && ch <= '9')) {
-
-                        numberText.setText(numberText.getText().substring(0, numberText.getText().length() - 1));
-                    }}}
-        });
 
         ageText.lengthProperty().addListener(new ChangeListener<>() {
 

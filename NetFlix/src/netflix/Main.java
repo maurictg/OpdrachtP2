@@ -4,8 +4,6 @@ import com.maurict.orm.Database;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import netflix.controllers.Controller;
-import netflix.models.*;
-
 
 public class Main extends Application {
 
@@ -17,7 +15,7 @@ public class Main extends Application {
         //Create a controller, just because we need to start the gui
         Controller c = new Controller();
         c.setStage(stage);
-        c.show("Login", "Netflix Statistix");
+        c.show("Login", "Netflix Statistix", 600, 400);
     }
 
     public static void main(String[] args) {
