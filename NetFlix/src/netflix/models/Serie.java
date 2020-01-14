@@ -11,6 +11,7 @@ public class Serie extends Table {
     public int serieId;
     public String serieName;
     public int recommendedSerie; //accountId
+    public int seasonNumber;
 
     private ArrayList<Program> episodeList;
     private boolean includesEpisodeList;
