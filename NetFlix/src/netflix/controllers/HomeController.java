@@ -15,4 +15,9 @@ public class HomeController extends Controller {
     public void exitApp(ActionEvent e){
         System.exit(0);
     }
+
+    @FXML
+    public void btnNewAccount_Click() {
+        this.show("Account", 1000, 600);
+    }
 }

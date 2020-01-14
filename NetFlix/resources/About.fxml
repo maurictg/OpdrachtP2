@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="About">
+
+    <MenuBar>
+        <Menu text="Program">
+            <MenuItem text="About" />
+            <SeparatorMenuItem />
+            <MenuItem onAction="#exitApp" text="Exit" />
+        </Menu>
+    </MenuBar>
+   <ButtonBar layoutX="189.0" layoutY="244.0" prefHeight="40.0" prefWidth="200.0" />
+</AnchorPane>

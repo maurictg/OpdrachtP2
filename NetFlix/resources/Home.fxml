@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.HomeController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.HomeController">
 
     <MenuBar>
         <menus>
             <Menu text="Program">
                 <items>
-                    <MenuItem text="About"  />
-                    <SeparatorMenuItem/>
-                    <MenuItem text="Exit" onAction="#exitApp" />
+                    <MenuItem text="About" />
+                    <SeparatorMenuItem />
+                    <MenuItem onAction="#exitApp" text="Exit" />
                 </items>
             </Menu>
         </menus>
     </MenuBar>
+   <Button fx:id="btnNewAccount" layoutX="17.0" layoutY="106.0" mnemonicParsing="false" onAction="#btnNewAccount_Click" text="New account" />
 </AnchorPane>
