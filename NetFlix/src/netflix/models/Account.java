@@ -1,9 +1,9 @@
-package netflix.models;
+package  netflix.models;
 
 import com.maurict.orm.Table;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Account extends Table {
 
@@ -11,12 +11,13 @@ public class Account extends Table {
     public int accountId;
     public String accountName;
     public String password;
+    public String phone;
+    public Date birthdate;
     public String city;
     public String street;
     public int number;
     public String extension;
-    public String phone;
-    public LocalDate birthdate;
+
 
     //This one needs to be private, because you can't store ArrayLists in the database
     private ArrayList<Profile> profiles;

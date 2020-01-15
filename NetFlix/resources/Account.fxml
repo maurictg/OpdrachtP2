@@ -1,113 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<AnchorPane opacity="0.95" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #333333;"
-            xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="netflix.controllers.AccountController">
-    <GridPane layoutX="78.0" layoutY="163.0" prefHeight="274.0" prefWidth="725.0">
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane opacity="0.95" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.AccountController">
+    <GridPane layoutX="78.0" layoutY="163.0" prefHeight="254.0" prefWidth="726.0">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="131.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="168.0" minWidth="10.0" prefWidth="168.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="138.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="161.0" minWidth="10.0" prefWidth="108.0"/>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="180.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="131.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="10.0" prefWidth="175.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.0" minWidth="10.0" prefWidth="131.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="161.0" minWidth="10.0" prefWidth="108.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="180.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-            <RowConstraints maxHeight="70.0" minHeight="0.0" prefHeight="31.0" vgrow="SOMETIMES"/>
-            <RowConstraints maxHeight="70.0" minHeight="0.0" prefHeight="39.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="42.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="39.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="63.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="72.0" minHeight="0.0" prefHeight="47.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="76.0" minHeight="0.0" prefHeight="56.0" vgrow="SOMETIMES" />
         </rowConstraints>
         <Label text="Name" textAlignment="CENTER" textFill="#e8e6e6">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
         <Label text="Password" textFill="#e8e6e6" GridPane.rowIndex="1">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
         <Label text="City" textFill="#e8e6e6" GridPane.columnIndex="3">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
         <Label text="Street" textFill="#e8e6e6" GridPane.columnIndex="3" GridPane.rowIndex="1">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
-        <TextField fx:id="tbName" opacity="0.8" prefHeight="31.0" prefWidth="102.0" GridPane.columnIndex="1"/>
-        <TextField fx:id="tbPassword" opacity="0.8" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-        <TextField fx:id="tbCity" opacity="0.8" GridPane.columnIndex="4"/>
-        <TextField fx:id="tbNumber" opacity="0.8" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+        <TextField fx:id="tbName" opacity="0.8" prefHeight="31.0" prefWidth="102.0" GridPane.columnIndex="1" />
+        <TextField fx:id="tbPassword" opacity="0.8" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField fx:id="tbCity" opacity="0.8" GridPane.columnIndex="4" />
+        <TextField fx:id="tbNumber" opacity="0.8" GridPane.columnIndex="4" GridPane.rowIndex="2" />
         <Label text="Number" textFill="#e8e6e6" GridPane.columnIndex="3" GridPane.rowIndex="2">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
         <Label text="Extension" textFill="#e8e6e6" GridPane.columnIndex="3" GridPane.rowIndex="3">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
         <Label text="Phone number" textFill="#e8e6e6" GridPane.rowIndex="4">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
         <Label text="Age" textFill="#e8e6e6" GridPane.rowIndex="5">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
-        <TextField fx:id="tbStreet" opacity="0.8" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
-        <TextField fx:id="tbExtension" opacity="0.8" GridPane.columnIndex="4" GridPane.rowIndex="3"/>
-        <TextField fx:id="tbAge" opacity="0.8" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
-        <TextField fx:id="tbPhonenumber" opacity="0.8" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        <TextField fx:id="tbStreet" opacity="0.8" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+        <TextField fx:id="tbExtension" opacity="0.8" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+        <TextField fx:id="tbPhonenumber" opacity="0.8" GridPane.columnIndex="1" GridPane.rowIndex="4" />
         <Label text="Repeat password" textFill="#e8e6e6" GridPane.rowIndex="2">
             <font>
-                <Font size="16.0"/>
+                <Font size="16.0" />
             </font>
         </Label>
-        <TextField fx:id="tbRepeatPassword" opacity="0.8" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <TextField fx:id="tbRepeatPassword" opacity="0.8" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <HBox alignment="CENTER" prefHeight="22.0" prefWidth="168.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+         <children>
+              <TextField fx:id="tbAgeDay" opacity="0.8" prefHeight="32.0" prefWidth="58.0" promptText="DD" />
+            <Separator opacity="0.0" prefHeight="33.0" prefWidth="11.0" />
+            <TextField fx:id="tbAgeMonth" opacity="0.8" prefHeight="31.0" prefWidth="61.0" promptText="MM" />
+            <Separator opacity="0.0" prefHeight="3.0" prefWidth="15.0" />
+            <TextField fx:id="tbAgeYear" opacity="0.8" prefHeight="30.0" prefWidth="58.0" promptText="YYYY" />
+         </children>
+      </HBox>
     </GridPane>
-    <Label alignment="TOP_LEFT" layoutX="78.0" layoutY="69.0" prefHeight="35.0" prefWidth="517.0"
-           text="Create new account" textFill="RED">
+    <Label alignment="TOP_LEFT" layoutX="78.0" layoutY="69.0" prefHeight="35.0" prefWidth="517.0" text="Create new account" textFill="RED">
         <font>
-            <Font size="30.0"/>
+            <Font size="30.0" />
         </font>
     </Label>
-    <Button fx:id="btnCancel" layoutX="734.0" layoutY="471.0" mnemonicParsing="false" onAction="#btnCancel_Click"
-            style="-fx-background-color: #444;" text="Cancel" textAlignment="CENTER" textFill="WHITE">
+    <Button fx:id="btnCancel" layoutX="734.0" layoutY="471.0" mnemonicParsing="false" onAction="#btnCancel_Click" style="-fx-background-color: #444;" text="Cancel" textAlignment="CENTER" textFill="WHITE">
         <cursor>
-            <Cursor fx:constant="HAND"/>
+            <Cursor fx:constant="HAND" />
         </cursor>
         <font>
-            <Font size="16.0"/>
+            <Font size="16.0" />
         </font>
         <effect>
-            <Glow/>
+            <Glow />
         </effect>
     </Button>
-    <Button fx:id="btnSave" layoutX="636.0" layoutY="471.0" mnemonicParsing="false" onAction="#btnSave_Click"
-            prefHeight="31.0" prefWidth="64.0" style="-fx-background-color: #444;" text="Save" textAlignment="CENTER"
-            textFill="WHITE">
+    <Button fx:id="btnSave" layoutX="636.0" layoutY="471.0" mnemonicParsing="false" onAction="#btnSave_Click" prefHeight="31.0" prefWidth="64.0" style="-fx-background-color: #444;" text="Save" textAlignment="CENTER" textFill="WHITE">
         <cursor>
-            <Cursor fx:constant="HAND"/>
+            <Cursor fx:constant="HAND" />
         </cursor>
         <font>
-            <Font size="16.0"/>
+            <Font size="16.0" />
         </font>
         <effect>
-            <Glow/>
+            <Glow />
         </effect>
     </Button>
+   <Label fx:id="lblFeedback" alignment="CENTER" contentDisplay="CENTER" layoutX="580.0" layoutY="519.0" prefHeight="37.0" prefWidth="272.0" textFill="RED">
+      <font>
+         <Font size="16.0" />
+      </font>
+   </Label>
 </AnchorPane>
