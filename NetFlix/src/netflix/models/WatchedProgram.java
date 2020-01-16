@@ -24,7 +24,7 @@ public class WatchedProgram extends Table {
     }
 
     public double getPercentageWatched() {
-        return (double)((this.timeWatched / this.getProgram().lengthInSeconds) * 100);
+        return (double)((this.timeWatched / this.getProgram().lengthInMinutes) * 100);
     }
 
     public Program getProgram() {

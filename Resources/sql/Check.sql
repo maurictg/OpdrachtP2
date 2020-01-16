@@ -10,6 +10,6 @@ INNER JOIN Programs ON Programs.programId = Films.programId
 GO
 
 /* check programs */
-SELECT Series.serieName, Series.seasonNumber, SeriesEpisode.episodeNumber, Series.recommendedSerie, Series.age, Series.genre, Series.language, Programs.title, Programs.lengthInSeconds FROM SeriesEpisode
+SELECT Series.serieName, Series.seasonNumber, SeriesEpisode.episodeNumber, Series.recommendedSerie, Series.age, Series.genre, Series.language, Programs.title, Programs.lengthInMinutes FROM SeriesEpisode
 INNER JOIN Series ON Series.serieId = SeriesEpisode.serieId
 INNER JOIN Programs ON Programs.programId = SeriesEpisode.programId

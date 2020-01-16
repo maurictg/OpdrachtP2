@@ -60,7 +60,7 @@ public class Serie extends Table {
             int id = p.programId;
             if (id == 0) {
                 Database.global.add(p);
-                id = new Program().select().where("title", p.title).and("lengthInSeconds", p.lengthInSeconds).firstInt();
+                id = new Program().select().where("title", p.title).and("lengthInMinutes", p.lengthInMinutes).firstInt();
             }
 
             p.programId = id;
