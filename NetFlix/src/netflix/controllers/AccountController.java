@@ -6,11 +6,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import jdk.jfr.StackTrace;
+import netflix.app.AccountManager;
 import netflix.models.Account;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 public class AccountController extends Controller {
 
@@ -51,6 +50,9 @@ public class AccountController extends Controller {
 
     @FXML
     private Label lblFeedback;
+
+    @FXML
+    private Label lblTitle;
 
     @FXML
     public void btnSave_Click() {
@@ -115,7 +117,7 @@ public class AccountController extends Controller {
 
         // Code to save an account
 
-        Account account = new Account();
+        Account account = (AccountManager.isEdit) ? AccountManager.selected : new Account();
 
         account.accountName = tbName.getText();
         account.password = tbPassword.getText();
@@ -129,25 +131,42 @@ public class AccountController extends Controller {
         //db.add(account);
         Database db = Database.global;
 
-        try {
-            int a = new Account().selectCount().where("accountName", account.accountName).firstInt();
-            System.out.println(a);
-            if (a > 0){
-                lblFeedback.setText("This name is already in use.");
+        if(!AccountManager.isEdit){
+            try {
+                int a = new Account().selectCount().where("accountName", account.accountName).firstInt();
+                System.out.println(a);
+                if (a > 0){
+                    lblFeedback.setText("This name is already in use.");
+                    return;
+                }
+            } catch (Exception e){
+                e.printStackTrace();
                 return;
             }
-        } catch (Exception e){
-            e.printStackTrace();
-            return;
         }
+
         try {
-            db.add(account);
+            if(AccountManager.isEdit){
+                db.add(account);
+            } else{
+                db.update(account);
+            }
             this.show("Home");
         } catch (Exception e){
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Failed to commit", ButtonType.OK).show();
         }
 
+    }
 
+    @Override
+    void onLoad() {
+        if(AccountManager.isEdit){
+            lblTitle.setText("Edit account");
+            Account a = AccountManager.selected;
+            tbName.setText(a.accountName);
+            tbName.setDisable(true);
+
+        }
     }
 }

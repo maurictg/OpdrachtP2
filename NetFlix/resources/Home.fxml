@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.effect.Glow?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane opacity="0.95" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.HomeController">
+<AnchorPane opacity="0.95" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.HomeController">
 
     <MenuBar>
         <menus>
@@ -26,7 +22,7 @@
          <Cursor fx:constant="HAND" />
       </cursor>
     </MenuBar>
-   <Button fx:id="btnNewAccount" layoutX="17.0" layoutY="106.0" mnemonicParsing="false" onAction="#btnNewAccount_Click" style="-fx-background-color: #444;" text="New account" textFill="WHITE">
+   <Button fx:id="btnNewAccount" layoutX="17.0" layoutY="115.0" mnemonicParsing="false" onAction="#btnNewAccount_Click" style="-fx-background-color: #444;" text="New account" textFill="WHITE">
       <font>
          <Font size="16.0" />
       </font>
@@ -36,6 +32,16 @@
       <effect>
          <Glow />
       </effect></Button>
+    <Button fx:id="btnEditAccount" layoutX="179.0" layoutY="247.0" onAction="#btnEditAccount_Click" mnemonicParsing="false" style="-fx-background-color: #444;" text="Edit account" textFill="WHITE">
+        <font>
+            <Font size="16.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <effect>
+            <Glow />
+        </effect></Button>
    <Button fx:id="btnViews" layoutX="17.0" layoutY="161.0" mnemonicParsing="false" onAction="#btnViews_Click" prefHeight="31.0" prefWidth="115.0" style="-fx-background-color: #444;" text="Views" textFill="WHITE">
       <effect>
          <Glow />
@@ -47,4 +53,6 @@
          <Cursor fx:constant="HAND" />
       </cursor>
    </Button>
+   <ComboBox fx:id="cbAccounts" layoutX="14.0" layoutY="253.0" onAction="#cbAccounts_Change" prefWidth="150.0" />
+   <Label layoutX="17.0" layoutY="225.0" text="Select an account:" textFill="WHITE" />
 </AnchorPane>

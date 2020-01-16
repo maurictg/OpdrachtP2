@@ -164,6 +164,8 @@ public class Database {
                         }
                         else if(f.getType() == LocalTime.class){
                             f.set(o, parse(rs.getTime(f.getName())));
+                        } else if(f.getType() == java.util.Date.class){
+                            f.set(o, parseDate(rs.getDate(f.getName())));
                         }
                     } catch (Exception ignored){
                         System.out.println("Can't parse DB column.");
@@ -250,8 +252,9 @@ public class Database {
     }
 
     //Parsers for datetime
-    private LocalDate parse(Date date) { return (date == null ? null : date.toLocalDate()); }
+    private LocalDate parse(java.sql.Date date) { return (date == null ? null : date.toLocalDate()); }
     private Date parse(LocalDate date){ return (date == null ? null : Date.valueOf(date)); }
     private LocalTime parse(Time time){ return (time == null ? null : time.toLocalTime()); }
     private Time parse(LocalTime time){ return (time == null ? null : Time.valueOf(time)); }
+    private java.util.Date parseDate(java.sql.Date date) { return new java.util.Date(date.getTime()); }
 }

@@ -86,7 +86,7 @@
          </children>
       </HBox>
     </GridPane>
-    <Label alignment="TOP_LEFT" layoutX="78.0" layoutY="69.0" prefHeight="35.0" prefWidth="517.0" text="Create new account" textFill="RED">
+    <Label fx:id="lblTitle" alignment="TOP_LEFT" layoutX="78.0" layoutY="69.0" prefHeight="35.0" prefWidth="517.0" text="Create new account" textFill="RED">
         <font>
             <Font size="30.0" />
         </font>
