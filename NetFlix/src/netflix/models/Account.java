@@ -13,7 +13,7 @@ public class Account extends Table {
     public String accountName;
     public String password;
     public String phone;
-    public LocalDate birthdate; //or Date?
+    public Date birthdate; //or Date?
     public String city;
     public String street;
     public int number;

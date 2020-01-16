@@ -15,7 +15,8 @@ public class Main extends Application {
         //Create a controller, just because we need to start the gui
         Controller c = new Controller();
         c.setStage(stage);
-        c.show("Login", "Netflix Statistix", 600, 400);
+        c.show("Home", "Netflix Statistix", 900, 600);
+//        c.show("Login", "Netflix Statistix", 600, 400);
     }
 
     public static void main(String[] args) {

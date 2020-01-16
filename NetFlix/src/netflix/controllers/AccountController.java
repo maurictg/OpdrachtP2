@@ -1,5 +1,6 @@
 package netflix.controllers;
 
+import com.maurict.orm.Database;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -69,15 +70,16 @@ public class AccountController extends Controller {
         }
 
         try {
-            bday = new SimpleDateFormat("dd/MM/yyyy").parse(tbAgeDay.getText() + tbAgeMonth.getText() + tbAgeYear.getText());
+            bday = new SimpleDateFormat("dd/MM/yyyy").parse(tbAgeDay.getText() + "/" + tbAgeMonth.getText() + "/" + tbAgeYear.getText());
 
         } catch (Exception e) {
             System.out.println("Date?");
-            bday = new Date(1, 1, 1999);
+            bday = new Date(1999, 1, 1);
+            e.printStackTrace();
         }
 
         this.saveAccount();
-        this.show("Home");
+
     }
 
     @FXML
@@ -125,6 +127,27 @@ public class AccountController extends Controller {
         account.extension = tbExtension.getText();
 
         //db.add(account);
+        Database db = Database.global;
+
+        try {
+            int a = new Account().selectCount().where("accountName", account.accountName).firstInt();
+            System.out.println(a);
+            if (a > 0){
+                lblFeedback.setText("This name is already in use.");
+                return;
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+            return;
+        }
+        try {
+            db.add(account);
+            this.show("Home");
+        } catch (Exception e){
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Failed to commit", ButtonType.OK).show();
+        }
+
 
     }
 }
