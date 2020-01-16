@@ -242,7 +242,7 @@ public class Database {
             String n = f.getName();
             if(!n.equals(pk)){
                 qb.append(n).append("=?").append(",");
-                psms.add(f.get(item).toString());
+                psms.add(f.get(item));
             }
         }
         qb.replace(qb.length()-1, qb.length(), " WHERE ");
