@@ -2,6 +2,7 @@ package  netflix.models;
 
 import com.maurict.orm.Table;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -12,7 +13,7 @@ public class Account extends Table {
     public String accountName;
     public String password;
     public String phone;
-    public Date birthdate; //or LocalDate?
+    public LocalDate birthdate; //or Date?
     public String city;
     public String street;
     public int number;
