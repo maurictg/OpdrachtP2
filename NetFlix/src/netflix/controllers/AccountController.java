@@ -1,6 +1,7 @@
 package netflix.controllers;
 
 import com.maurict.orm.Database;
+import com.sun.javafx.binding.StringConstant;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -9,6 +10,8 @@ import javafx.scene.control.TextField;
 import netflix.app.AccountManager;
 import netflix.models.Account;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 public class AccountController extends Controller {
@@ -146,7 +149,7 @@ public class AccountController extends Controller {
         }
 
         try {
-            if(AccountManager.isEdit){
+            if(!AccountManager.isEdit){
                 db.add(account);
             } else{
                 db.update(account);
@@ -165,8 +168,19 @@ public class AccountController extends Controller {
             lblTitle.setText("Edit account");
             Account a = AccountManager.selected;
             tbName.setText(a.accountName);
+            tbPassword.setText(a.password);
+            tbRepeatPassword.setText(a.password);
+            tbPhonenumber.setText(a.phone);
+            tbCity.setText(a.city);
+            tbStreet.setText(a.street);
+            tbNumber.setText(String.valueOf(a.number));
+            tbExtension.setText(a.extension);
             tbName.setDisable(true);
-
+            Date date = a.birthdate;
+            LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            tbAgeDay.setText(String.valueOf(localDate.getDayOfMonth()));
+            tbAgeMonth.setText(String.valueOf(localDate.getMonthValue()));
+            tbAgeYear.setText(String.valueOf(localDate.getYear()));
         }
     }
 }
