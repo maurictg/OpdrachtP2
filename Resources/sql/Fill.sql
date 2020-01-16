@@ -74,6 +74,8 @@ INSERT INTO Series(serieName,recommendedSerie,seasonNumber,language,genre,age) V
 
 /* Films */
 
+GO
+
 INSERT INTO Films(language,genre,age,programId) VALUES ('Nederlands','Humor',6,57);
 INSERT INTO Films(language,genre,age,programId) VALUES ('Duits','Oorlog',6,58);
 INSERT INTO Films(language,genre,age,programId) VALUES ('Vlaams','Humor',12,59);
