@@ -20,7 +20,7 @@ CREATE TABLE Accounts (
 CREATE TABLE Programs (
     programId INT NOT NULL PRIMARY KEY IDENTITY(1,1), /* PK */
     title VARCHAR(50),
-    lengthInSeconds INT NULL
+    lengthInMinutes INT NULL
 );
 
 CREATE TABLE Films (
