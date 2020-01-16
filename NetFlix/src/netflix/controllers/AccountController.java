@@ -64,13 +64,13 @@ public class AccountController extends Controller {
             return;
         }
 
-        if (!this.checkPasswords()) {
+        if (!this.checkPasswords(tbPassword.getText(), tbRepeatPassword.getText())) {
             lblFeedback.setText("Passwords don't match");
             return;
         }
 
-        if (checkInteger(tbPhonenumber) && checkInteger(tbNumber)) {
-            lblFeedback.setText("Number: enter a number");
+        if (!checkInteger(tbPhonenumber) && !checkInteger(tbNumber)) {
+            lblFeedback.setText("Wrong house- or phone number");
             return;
         }
 
@@ -101,19 +101,19 @@ public class AccountController extends Controller {
     }
 
     // Checks if given passwords are equal;
-    private boolean checkPasswords() {
-        return tbPassword.getText().equals(tbRepeatPassword.getText());
+    public boolean checkPasswords(String first, String second) {
+        return first.equals(second);
     }
 
-    private boolean checkInteger(TextField field) {
+    public boolean checkInteger(TextField field) {
         try {
             int i = Integer.parseInt(field.getText());
 
         } catch (NumberFormatException ex) {
-            return true;
+            return false;
         }
 
-        return false;
+        return true;
     }
 
     private void saveAccount() {
