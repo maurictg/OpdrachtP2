@@ -3,10 +3,7 @@ package netflix.controllers;
 import com.maurict.orm.Database;
 import com.sun.javafx.binding.StringConstant;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import netflix.app.AccountManager;
 import netflix.models.Account;
 import java.text.SimpleDateFormat;
@@ -58,6 +55,9 @@ public class AccountController extends Controller {
     private Label lblTitle;
 
     @FXML
+    private Button btnDelete;
+
+    @FXML
     public void btnSave_Click() {
         if (this.checkEmpty()) {
             lblFeedback.setText("Please fill all fields");
@@ -84,6 +84,17 @@ public class AccountController extends Controller {
         }
 
         this.saveAccount();
+
+    }
+
+    public void btnDelete_Click(){
+        Database db = Database.global;
+        try {
+            db.remove(AccountManager.selected);
+            this.show("Home");
+        } catch (Exception e){
+            new Alert(Alert.AlertType.ERROR, "Failed to remove", ButtonType.OK).show();
+        }
 
     }
 
@@ -162,6 +173,8 @@ public class AccountController extends Controller {
 
     }
 
+
+
     @Override
     void onLoad() {
         if(AccountManager.isEdit){
@@ -181,6 +194,8 @@ public class AccountController extends Controller {
             tbAgeDay.setText(String.valueOf(localDate.getDayOfMonth()));
             tbAgeMonth.setText(String.valueOf(localDate.getMonthValue()));
             tbAgeYear.setText(String.valueOf(localDate.getYear()));
+        } else {
+            btnDelete.setVisible(false);
         }
     }
 }
