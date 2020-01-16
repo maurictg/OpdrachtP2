@@ -8,7 +8,7 @@ public class WatchedProgram extends Table {
     public int watchedProgramId; //primary key
     public int programId; //foreign key: Program.accountId
     public int profileId; //foreign key: Profile.accountId
-    public int timeWatched;
+    public int timeWatched; //in seconds
 
     //1-1 relations
     private Program program;
@@ -24,7 +24,7 @@ public class WatchedProgram extends Table {
     }
 
     public double getPercentageWatched() {
-        return (double)((this.timeWatched / this.getProgram().time) * 100);
+        return (double)((this.timeWatched / this.getProgram().lengthInSeconds) * 100);
     }
 
     public Program getProgram() {

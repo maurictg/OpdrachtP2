@@ -12,7 +12,7 @@ public class Account extends Table {
     public String accountName;
     public String password;
     public String phone;
-    public Date birthdate;
+    public Date birthdate; //or LocalDate?
     public String city;
     public String street;
     public int number;

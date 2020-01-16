@@ -9,7 +9,6 @@ public class Profile extends Table {
     public int profileId;
     public int accountId;
     public String profileName;
-    public int age;
 
     private ArrayList<WatchedProgram> programsWatched;
     private boolean includesProgramsWatched;

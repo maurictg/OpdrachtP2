@@ -6,6 +6,9 @@ import netflix.models.Program;
 public class Film extends Table {
 
     public int filmId;
+    public int age;
+    public String language;
+    public String genre;
     public int programId;
 
     //1-1 relation = always get

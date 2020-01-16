@@ -10,8 +10,11 @@ public class Serie extends Table {
 
     public int serieId;
     public String serieName;
-    public int recommendedSerie; //accountId
+    public int recommendedSerie; //serieId
     public int seasonNumber;
+    public String language;
+    public String genre;
+    public int age;
 
     private ArrayList<Program> episodeList;
     private boolean includesEpisodeList;
@@ -57,7 +60,7 @@ public class Serie extends Table {
             int id = p.programId;
             if (id == 0) {
                 Database.global.add(p);
-                id = new Program().select().where("title", p.title).and("time", p.time).firstInt();
+                id = new Program().select().where("title", p.title).and("lengthInSeconds", p.lengthInSeconds).firstInt();
             }
 
             p.programId = id;
