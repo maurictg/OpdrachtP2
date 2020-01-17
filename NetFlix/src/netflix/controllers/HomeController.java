@@ -22,6 +22,9 @@ public class HomeController extends Controller {
     private Button btnEditAccount;
 
     @FXML
+    private Button btnManageProfiles;
+
+    @FXML
     public void btnAbout_Click() {
         this.show("About");
     }
@@ -48,6 +51,11 @@ public class HomeController extends Controller {
     }
 
     @FXML
+    public void btnManageProfiles_Click(){
+        this.show("Profile");
+    }
+
+    @FXML
     public void cbAccounts_Change() {
         for (Object account : accounts) {
             Account a = (Account)account;
@@ -55,6 +63,7 @@ public class HomeController extends Controller {
                 AccountManager.selected = a;
                 AccountManager.isEdit = true;
                 btnEditAccount.setVisible(true);
+                btnManageProfiles.setVisible(true);
             }
         }
     }
@@ -62,6 +71,7 @@ public class HomeController extends Controller {
     @Override
     void onLoad() {
         btnEditAccount.setVisible(false);
+        btnManageProfiles.setVisible(false);
         try{
             accounts = new Account().select().toList();
             for (Object o: accounts) {
