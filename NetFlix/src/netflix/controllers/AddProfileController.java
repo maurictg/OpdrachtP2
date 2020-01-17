@@ -15,7 +15,7 @@ public class AddProfileController extends Controller {
 
     @FXML
     private Label labelWarning;
-    
+
 
     public void btnReturn_Click(){
         this.show("Home");

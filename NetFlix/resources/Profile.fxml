@@ -6,8 +6,10 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.ProfileController">
    <children>
-      <Button layoutX="402.0" layoutY="82.0" mnemonicParsing="false" onAction="#btnAddProfile_Click" text="Add Profile" />
+      <Button layoutX="187.0" layoutY="140.0" mnemonicParsing="false" onAction="#btnAddProfile_Click" text="Add Profile" />
       <ComboBox fx:id="cbProfiles" layoutX="23.0" layoutY="82.0" onAction="#cbProfiles_Change" prefWidth="150.0" />
-      <Button layoutX="402.0" layoutY="287.0" mnemonicParsing="false" onAction="#btnReturn_Click" text="Return" />
+      <Button layoutX="423.0" layoutY="286.0" mnemonicParsing="false" onAction="#btnReturn_Click" text="Return" />
+      <Button fx:id="btnDelete" layoutX="310.0" layoutY="82.0" mnemonicParsing="false" onAction="#btnDelete_Click" prefHeight="39.0" prefWidth="113.0" text="Delete" />
+      <Button fx:id="btnWatch" layoutX="187.0" layoutY="82.0" mnemonicParsing="false" onAction="#btnWatch_Click" prefHeight="39.0" prefWidth="113.0" text="Watch" />
    </children>
 </AnchorPane>
