@@ -8,5 +8,6 @@
    <children>
       <Button layoutX="402.0" layoutY="82.0" mnemonicParsing="false" onAction="#btnAddProfile_Click" text="Add Profile" />
       <ComboBox fx:id="cbProfiles" layoutX="23.0" layoutY="82.0" onAction="#cbProfiles_Change" prefWidth="150.0" />
+      <Button layoutX="402.0" layoutY="287.0" mnemonicParsing="false" onAction="#btnReturn_Click" text="Return" />
    </children>
 </AnchorPane>

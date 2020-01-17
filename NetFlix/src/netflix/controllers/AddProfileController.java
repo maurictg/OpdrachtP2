@@ -15,15 +15,15 @@ public class AddProfileController extends Controller {
 
     @FXML
     private Label labelWarning;
+    
 
-//    public void btnSaveProfile_Click(){
-//        System.out.println("oof");
-//    }
+    public void btnReturn_Click(){
+        this.show("Home");
+    }
 
     public void btnSaveProfile_Click(){
         if (tbNameProfile.getText().isEmpty()){
             labelWarning.setText("Please fill in the field");
-            System.out.println("geklikt");
         } else {
             Database db = Database.global;
             Profile profile = new Profile();
@@ -31,9 +31,9 @@ public class AddProfileController extends Controller {
             profile.accountId = AccountManager.selected.accountId;
             try {
                 db.add(profile);
-                System.out.println("Gelukt");
+                this.show("Profile");
             } catch (Exception e){
-                System.out.println("Mislukt");
+
             }
 
         }

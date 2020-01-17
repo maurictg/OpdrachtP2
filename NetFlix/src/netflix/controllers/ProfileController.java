@@ -20,6 +20,10 @@ public class ProfileController extends Controller {
         this.show("AddProfile");
     }
 
+    public void btnReturn_Click(){
+        this.show("Home");
+    }
+
     @FXML
     public void cbProfiles_Change() {
         for (Object profile : profiles) {
@@ -37,7 +41,9 @@ public class ProfileController extends Controller {
         try{
             profiles = new Profile().select().toList();
             for (Object o: profiles) {
-                cbProfiles.getItems().add(((Profile)o).profileName);
+                if (((Profile)o).accountId == AccountManager.selected.accountId){
+                    cbProfiles.getItems().add(((Profile)o).profileName);
+                }
             }
         }catch (Exception e){
             e.printStackTrace();
