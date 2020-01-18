@@ -23,7 +23,7 @@ public class Program extends Table {
                 }
             }
         } catch (Exception e){
-            System.out.println("Mislukt");
+
         }
         return -1;
     }
@@ -37,7 +37,7 @@ public class Program extends Table {
                 }
             }
         } catch (Exception e){
-            System.out.println("Mislukt");
+
         }
         return new Program();
     }

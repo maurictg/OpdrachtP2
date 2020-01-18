@@ -32,12 +32,12 @@ public class ViewsController extends Controller {
 
         Film film = new Film();
 
-        //tbData.setText(film.longestFilmAgeSixteen());
+        tbData.setText(film.longestFilmAgeSixteen());
     }
 
     @FXML
     private void btnViewAccountsWithOneProfile_Click() {
-
+        
     }
 
     @FXML
