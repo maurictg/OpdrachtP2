@@ -2,16 +2,30 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.WatchProgramController">
    <children>
-      <Button fx:id="btnWatchFilm" layoutX="462.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnWatchFilm_Click" text="Watch Film" />
-      <Label layoutX="28.0" layoutY="42.0" text="Films" textFill="WHITE" />
-      <ComboBox fx:id="cbFilms" layoutX="28.0" layoutY="75.0" onAction="#cbFilms_Change" prefWidth="150.0" />
-      <Label layoutX="196.0" layoutY="42.0" text="Watch for how long? (minutes)" textFill="WHITE" />
-      <TextField fx:id="textFieldMinutesWatched" layoutX="196.0" layoutY="75.0" text="0" />
-      <Label fx:id="labelMessage" layoutX="202.0" layoutY="133.0" text="Not a correct number." textFill="WHITE" />
-      <Slider layoutX="196.0" fx:id="sldPercent" layoutY="112.0" prefHeight="14.0" prefWidth="149.0" />
-      <Label fx:id="lblPercent" layoutX="351.0" layoutY="110.0" text="0%" textFill="RED" />
+      <Button fx:id="btnWatchFilm" layoutX="31.0" layoutY="150.0" mnemonicParsing="false" onAction="#btnWatchFilm_Click" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #444; -fx-text-fill: #FFF;" text="Watch Film">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Label layoutX="31.0" layoutY="76.0" text="Films" textFill="WHITE" />
+      <ComboBox fx:id="cbFilms" layoutX="31.0" layoutY="105.0" onAction="#cbFilms_Change" prefHeight="34.0" prefWidth="230.0" promptText="Select a Film" style="-fx-font-size: 14;" />
+      <Label layoutX="328.0" layoutY="76.0" text="Watch for how long? (minutes)" textFill="WHITE" />
+      <TextField fx:id="textFieldMinutesWatched" layoutX="328.0" layoutY="109.0" text="0" />
+      <Label fx:id="labelMessage" layoutX="334.0" layoutY="167.0" text="Not a correct number." textFill="WHITE" />
+      <Slider fx:id="sldPercent" layoutX="328.0" layoutY="146.0" prefHeight="14.0" prefWidth="149.0" />
+      <Label fx:id="lblPercent" layoutX="483.0" layoutY="144.0" text="0%" textFill="RED" />
+      <Label layoutX="247.0" layoutY="14.0" text="Watched programs" textFill="RED">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnBack" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#btnBack_Click" prefHeight="26.0" prefWidth="98.0" style="-fx-background-color: #444; -fx-text-fill: #FFF;" text="&lt; Back">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

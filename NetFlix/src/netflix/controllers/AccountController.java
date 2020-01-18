@@ -3,10 +3,7 @@ package netflix.controllers;
 import com.maurict.orm.Database;
 import com.sun.javafx.binding.StringConstant;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import netflix.app.AccountManager;
 import netflix.app.Cache;
 import netflix.models.Account;
@@ -57,6 +54,21 @@ public class AccountController extends Controller {
 
     @FXML
     private Label lblTitle;
+
+    @FXML
+    private Button btnDelete;
+
+    @FXML
+    public void btnDelete_Click() {
+        try{
+            AccountManager.selected.delete();
+            Cache.cacheAccounts(true);
+            this.show("Home");
+        } catch (Exception e){
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "Deleting account failed.").show();
+        }
+    }
 
     @FXML
     public void btnSave_Click() {
@@ -182,6 +194,8 @@ public class AccountController extends Controller {
             tbAgeDay.setText(String.valueOf(localDate.getDayOfMonth()));
             tbAgeMonth.setText(String.valueOf(localDate.getMonthValue()));
             tbAgeYear.setText(String.valueOf(localDate.getYear()));
+        } else{
+            btnDelete.setVisible(false);
         }
     }
 }

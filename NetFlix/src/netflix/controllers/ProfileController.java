@@ -64,7 +64,7 @@ public class ProfileController extends Controller {
     @Override
     void onLoad() {
         btnDelete.setVisible(false);
-        btnWatch.setVisible(true);
+        btnWatch.setVisible(false);
         try{
             AccountManager.selected.getProfiles().forEach((f) -> cbProfiles.getItems().add(f.profileName));
         }catch (Exception e){

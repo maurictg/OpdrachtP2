@@ -4,6 +4,7 @@ import com.maurict.orm.Database;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import netflix.app.AccountManager;
+import netflix.app.Cache;
 import netflix.models.Account;
 import netflix.models.Film;
 import netflix.models.Program;
@@ -13,8 +14,6 @@ import java.util.ArrayList;
 
 public class WatchProgramController extends Controller {
 
-    private ArrayList<Object> programs;
-    private ArrayList<Object> films;
     private ArrayList<Integer> programIdsFromFilms;
     private ArrayList<Object> watchedPrograms;
 
@@ -60,7 +59,7 @@ public class WatchProgramController extends Controller {
 
     @FXML
     public void cbFilms_Change(){
-        for (Object program : programs) {
+        for (Object program : Cache.programs) {
             Program a = (Program)program;
             if(a.title.equals((String)cbFilms.getValue())){
                 AccountManager.selectedProgram = a;
@@ -69,23 +68,28 @@ public class WatchProgramController extends Controller {
         }
     }
 
+    @FXML
+    public void btnBack_Click(){
+        this.show("Profile");
+    }
+
 
     @Override
     void onLoad() {
         labelMessage.setVisible(false);
         btnWatchFilm.setVisible(false);
         try{
-            programs = new Program().select().toList();
-            films = new Film().select().toList();
-            watchedPrograms = new Film().select().toList();
+            Cache.cachePrograms();
+            Cache.cacheFilms();
+            watchedPrograms = new WatchedProgram().select().where("profileId", AccountManager.selectedProfile.accountId).toList();
             programIdsFromFilms = new ArrayList<>();
-            for (Object o: films){
-                programIdsFromFilms.add(((Film)o).programId);
+            for (Film o: Cache.films){
+                programIdsFromFilms.add(o.programId);
             }
 
-            for (Object o: programs) {
-                if (programIdsFromFilms.contains(((Program)o).programId)){
-                    cbFilms.getItems().add(((Program)o).title);
+            for (Program o: Cache.programs) {
+                if (programIdsFromFilms.contains(o.programId)){
+                    cbFilms.getItems().add(o.title);
                 }
             }
         }catch (Exception e){

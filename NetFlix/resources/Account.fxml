@@ -102,7 +102,7 @@
             <Glow />
         </effect>
     </Button>
-    <Button fx:id="btnSave" layoutX="626.0" layoutY="471.0" mnemonicParsing="false" onAction="#btnSave_Click" prefHeight="38.0" prefWidth="90.0" style="-fx-background-color: #555;" text="Save" textAlignment="CENTER" textFill="WHITE">
+    <Button fx:id="btnSave" layoutX="626.0" layoutY="471.0" mnemonicParsing="false" onAction="#btnSave_Click" prefHeight="38.0" prefWidth="90.0" style="-fx-background-color: #66bd5e;" text="Save" textAlignment="CENTER" textFill="WHITE">
         <cursor>
             <Cursor fx:constant="HAND" />
         </cursor>
@@ -118,4 +118,15 @@
          <Font size="16.0" />
       </font>
    </Label>
+   <Button fx:id="btnDelete" layoutX="626.0" layoutY="518.0" mnemonicParsing="false" onAction="#btnDelete_Click" prefHeight="38.0" prefWidth="180.0" style="-fx-background-color: #c9523c;" text="Delete" textAlignment="CENTER" textFill="WHITE">
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+      <font>
+         <Font size="16.0" />
+      </font>
+      <effect>
+         <Glow />
+      </effect>
+   </Button>
 </AnchorPane>
