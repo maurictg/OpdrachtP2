@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.WatchProgramController">
+<AnchorPane prefHeight="480.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.WatchProgramController">
    <children>
       <Button fx:id="btnWatchFilm" layoutX="31.0" layoutY="150.0" mnemonicParsing="false" onAction="#btnWatchFilm_Click" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #444; -fx-text-fill: #FFF;" text="Watch Film">
          <font>
@@ -27,5 +27,7 @@
             <Font size="14.0" />
          </font>
       </Button>
+      <Label layoutX="31.0" layoutY="224.0" text="Watched films" textFill="WHITE" />
+      <ListView fx:id="tvFilms" layoutX="31.0" layoutY="249.0" prefHeight="178.0" prefWidth="471.0" />
    </children>
 </AnchorPane>

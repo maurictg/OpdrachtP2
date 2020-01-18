@@ -10,7 +10,7 @@
       <ComboBox fx:id="cbProfiles" layoutX="180.0" layoutY="160.0" onAction="#cbProfiles_Change" prefHeight="39.0" prefWidth="240.0" promptText="Select profile" style="-fx-font-size: 14;" />
       <Button layoutX="26.0" layoutY="24.0" mnemonicParsing="false" onAction="#btnReturn_Click" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #444; -fx-text-fill: #FFF;" text="&lt; Back" />
       <Button fx:id="btnDelete" layoutX="306.0" layoutY="208.0" mnemonicParsing="false" onAction="#btnDelete_Click" prefHeight="39.0" prefWidth="113.0" style="-fx-background-color: #c74740; -fx-text-fill: #FFF;" text="Delete" />
-      <Button fx:id="btnWatch" layoutX="181.0" layoutY="208.0" mnemonicParsing="false" onAction="#btnWatch_Click" prefHeight="39.0" prefWidth="113.0" style="-fx-background-color: #444; -fx-text-fill: #FFF;" text="Watch Film" />
+      <Button fx:id="btnWatch" layoutX="181.0" layoutY="208.0" mnemonicParsing="false" onAction="#btnWatch_Click" prefHeight="39.0" prefWidth="113.0" style="-fx-background-color: #444; -fx-text-fill: #FFF;" text="Films" />
       <Label layoutX="200.0" layoutY="16.0" text="Profile manager" textFill="RED">
          <font>
             <Font size="30.0" />

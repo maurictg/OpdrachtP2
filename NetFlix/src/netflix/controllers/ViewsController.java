@@ -80,8 +80,8 @@ public class ViewsController extends Controller {
 
         for (int i = 0; i < films.size(); i++) {
 
-            watchedPrograms.add((Program) films.get(i));
-            tbData.setText(films.get(i));
+            watchedPrograms.add((Program)films.get(i));
+            tbData.setText(((Program) films.get(i)).title);
         }
     } catch (Exception e) {
             e.printStackTrace();
