@@ -1,6 +1,7 @@
 package netflix.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import netflix.app.AccountManager;
@@ -15,9 +16,9 @@ public class FilmsWatchedByAccountController extends Controller {
     private ArrayList<Object> watchedPrograms;
     private ArrayList<Object> films;
     private ArrayList<Object> programs;
-    private ArrayList<Profile> foundProfiles = new ArrayList<>();
-    private ArrayList<WatchedProgram> foundWatchedProgams = new ArrayList<>();
-    private ArrayList<Film> foundWatchedFilms = new ArrayList<>();
+//    private ArrayList<Profile> foundProfiles = new ArrayList<>();
+//    private ArrayList<WatchedProgram> foundWatchedProgams = new ArrayList<>();
+//    private ArrayList<Film> foundWatchedFilms = new ArrayList<>();
 
     @FXML
     private ComboBox cbAccounts;
@@ -25,10 +26,22 @@ public class FilmsWatchedByAccountController extends Controller {
     @FXML
     private TextArea taData;
 
+    @FXML
+    private Button btnReturn;
+
+    @FXML
+    public void btnReturn_Click(){
+        this.show("Home");
+    }
+
 
     @FXML
     public void cbAccounts_Change(){
         taData.clear();
+        ArrayList<Profile> foundProfiles = new ArrayList<>();
+        ArrayList<WatchedProgram> foundWatchedProgams = new ArrayList<>();
+        ArrayList<Film> foundWatchedFilms = new ArrayList<>();
+
         taData.setText("results:" + "\n");
         for (Account a : Cache.accounts) {
             if(a.accountName.equals(cbAccounts.getValue())){
