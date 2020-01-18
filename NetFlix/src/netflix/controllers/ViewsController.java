@@ -17,6 +17,7 @@ public class ViewsController extends Controller {
     @FXML
     private void btnViewAvgWatchedPerEpisode_Click() {
 
+
     }
 
     @FXML
@@ -26,6 +27,7 @@ public class ViewsController extends Controller {
 
     @FXML
     private void btnViewWatchedMoviesPerAccount_Click() {
+
 
 
 
