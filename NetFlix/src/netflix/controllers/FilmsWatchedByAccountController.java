@@ -33,6 +33,7 @@ public class FilmsWatchedByAccountController extends Controller {
                 AccountManager.selected = a;
             }
         }
+
         for (Object p: profiles){
             if (((Profile)p).accountId == AccountManager.selected.accountId){
                 foundProfiles.add((Profile)p);
