@@ -9,7 +9,7 @@ Dit is de opdracht van Programmeren 2 / Relationele Databases 2 van Aart, Lauran
 - OpenJFX mapje _bin_
 - OpenJFX mapje _lib_
 - JDBC driver
-5. Voer de SQL scripts uit om de database goed in te stellen (op dit moment nog niet aanwezig in de repo)
+5. Voer de SQL scripts uit om de database goed in te stellen (staan in het mapje resources. Eerst Create, en dan Fill)
 6. ... (database connectie instellen, Database db = new Database..);
 
 ## LET OP: Je hebt de volgende VM-options nodig:

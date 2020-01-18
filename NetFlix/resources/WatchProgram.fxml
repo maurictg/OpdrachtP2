@@ -29,5 +29,6 @@
       </Button>
       <Label layoutX="31.0" layoutY="224.0" text="Watched films" textFill="WHITE" />
       <ListView fx:id="tvFilms" layoutX="31.0" layoutY="249.0" prefHeight="178.0" prefWidth="471.0" />
+      <Label fx:id="lblFullyWatched" layoutX="31.0" layoutY="195.0" text="The selected film is fully watched by 0 people" textFill="RED" />
    </children>
 </AnchorPane>

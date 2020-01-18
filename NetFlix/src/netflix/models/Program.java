@@ -36,9 +36,13 @@ public class Program extends Table {
                     return ((Program)programs.get(i));
                 }
             }
+
+            return (Program)new Program().find(programId);
         } catch (Exception e){
 
         }
         return new Program();
     }
+
+
 }
