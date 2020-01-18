@@ -40,6 +40,9 @@ public class WatchProgramController extends Controller {
     private Label lblPercent;
 
     @FXML
+    private Label lblFullyWatched;
+
+    @FXML
     private void btnWatchFilm_Click(){
         try {
             labelMessage.setVisible(false);
@@ -66,12 +69,17 @@ public class WatchProgramController extends Controller {
     }
 
     @FXML
-    public void cbFilms_Change(){
+    public void cbFilms_Change() throws Exception{
         for (Object program : Cache.programs) {
             Program a = (Program)program;
             if(a.title.equals((String)cbFilms.getValue())){
                 AccountManager.selectedProgram = a;
                 btnWatchFilm.setVisible(true);
+                int fw = new WatchedProgram()
+                        .selectCount().where("programId",a.programId)
+                        .and("timeWatched","=",a.lengthInMinutes).firstInt();
+
+                lblFullyWatched.setText("This film is fully watched by "+fw+" people.");
             }
         }
     }
@@ -80,6 +88,7 @@ public class WatchProgramController extends Controller {
     public void btnBack_Click(){
         this.show("Profile");
     }
+
 
 
     @Override
@@ -109,6 +118,7 @@ public class WatchProgramController extends Controller {
     }
 
     private void refreshTable(){
+        tvFilms.getItems().clear();
         for (Object o : watchedPrograms){
             WatchedProgram wp = (WatchedProgram)o;
             StringBuilder sb = new StringBuilder();
