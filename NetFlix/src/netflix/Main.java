@@ -5,7 +5,6 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import netflix.app.Cache;
 import netflix.controllers.Controller;
-import netflix.models.Film;
 
 public class Main extends Application {
 

@@ -31,11 +31,11 @@
          </font>
       </Label>
       <VBox layoutX="45.0" layoutY="308.0" prefHeight="200.0" prefWidth="100.0" />
-      <TextArea layoutX="497.0" layoutY="182.0" opacity="0.8" prefHeight="280.0" prefWidth="352.0" promptText="Data" />
-      <GridPane layoutX="76.0" layoutY="189.0" prefHeight="280.0" prefWidth="377.0">
+      <TextArea fx:id="tbData" layoutX="524.0" layoutY="182.0" opacity="0.8" prefHeight="280.0" prefWidth="352.0" promptText="Data" />
+      <GridPane layoutX="37.0" layoutY="182.0" prefHeight="287.0" prefWidth="450.0">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0" prefWidth="301.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="171.0" minWidth="10.0" prefWidth="76.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="405.0" minWidth="10.0" prefWidth="375.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="171.0" minWidth="10.0" prefWidth="75.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="58.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
@@ -46,7 +46,7 @@
             <RowConstraints maxHeight="51.0" minHeight="10.0" prefHeight="51.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="71.0" style="-fx-background-color: #444;" text="Data" textFill="WHITE" GridPane.columnIndex="1">
+            <Button fx:id="btnViewOne" mnemonicParsing="false" onAction="#btnViewAvgWatchedPerEpisode_Click" prefHeight="37.0" prefWidth="71.0" style="-fx-background-color: #444;" text="Data" textFill="WHITE" GridPane.columnIndex="1">
                <font>
                   <Font size="16.0" />
                </font>
@@ -57,16 +57,12 @@
                <font>
                   <Font size="16.0" />
                </font></Label>
-            <Label layoutX="10.0" layoutY="224.0" text="Selected serie: average watched % per episode" textFill="#e8e6e6">
+            <Label layoutX="10.0" layoutY="224.0" text="Selected serie: avg watched % per episode" textFill="#e8e6e6">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="10.0" layoutY="224.0" text="Selected accout, serie: average watched % per episode per account" textFill="#e8e6e6" GridPane.rowIndex="1">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
+            <Label layoutX="10.0" layoutY="224.0" text="Selected account, serie: avg watched % per episode per account" textFill="#e8e6e6" GridPane.rowIndex="1" />
             <Label layoutX="10.0" layoutY="22.0" text="Watched movies per account" textFill="#e8e6e6" GridPane.rowIndex="2">
                <font>
                   <Font size="16.0" />
@@ -82,7 +78,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button layoutX="288.0" layoutY="16.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="71.0" style="-fx-background-color: #444;" text="Data" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Button fx:id="btnViewAccountsWithOneProfile" layoutX="288.0" layoutY="16.0" mnemonicParsing="false" onAction="#btnViewAccountsWithOneProfile_Click" prefHeight="37.0" prefWidth="71.0" style="-fx-background-color: #444;" text="Data" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font size="16.0" />
                </font>
@@ -90,7 +86,7 @@
                   <Glow />
                </effect>
             </Button>
-            <Button layoutX="288.0" layoutY="16.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="71.0" style="-fx-background-color: #444;" text="Data" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button fx:id="btnViewLongestMovieSixteenYears" layoutX="288.0" layoutY="16.0" mnemonicParsing="false" onAction="#btnViewLongestMovieSixteenYears_Click" prefHeight="37.0" prefWidth="71.0" style="-fx-background-color: #444;" text="Data" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="16.0" />
                </font>
@@ -98,7 +94,7 @@
                   <Glow />
                </effect>
             </Button>
-            <Button layoutX="288.0" layoutY="16.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="71.0" style="-fx-background-color: #444;" text="Data" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="btnViewWatchedMoviesPerAccount" layoutX="288.0" layoutY="16.0" mnemonicParsing="false" onAction="#btnViewWatchedMoviesPerAccount_Click" prefHeight="37.0" prefWidth="71.0" style="-fx-background-color: #444;" text="Data" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="16.0" />
                </font>
@@ -106,7 +102,7 @@
                   <Glow />
                </effect>
             </Button>
-            <Button layoutX="288.0" layoutY="16.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="71.0" style="-fx-background-color: #444;" text="Data" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="btnView" layoutX="288.0" layoutY="16.0" mnemonicParsing="false" onAction="#btnViewAvgWatchedPerEpisodePerAccount_Click" prefHeight="37.0" prefWidth="71.0" style="-fx-background-color: #444;" text="Data" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="16.0" />
                </font>
@@ -114,7 +110,7 @@
                   <Glow />
                </effect>
             </Button>
-            <Button layoutX="288.0" layoutY="182.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="71.0" style="-fx-background-color: #444;" text="Data" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Button fx:id="btnViewAmountOfUsersWatched" layoutX="288.0" layoutY="182.0" mnemonicParsing="false" onAction="#btnViewTimesWatched_Click" prefHeight="37.0" prefWidth="71.0" style="-fx-background-color: #444;" text="Data" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <font>
                   <Font size="16.0" />
                </font>
