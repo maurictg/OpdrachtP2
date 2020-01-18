@@ -27,9 +27,7 @@ public class ViewsController extends Controller {
 
     @FXML
     private void btnViewWatchedMoviesPerAccount_Click() {
-
-
-
+        this.show("FilmsWatchedByAccount");
 
     }
 
