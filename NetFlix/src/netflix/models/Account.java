@@ -51,6 +51,11 @@ public class Account extends Table {
         }
     }
 
+    public void clearProfiles(){
+        this.profiles.clear();
+        this.includesProfiles = false;
+    }
+
     public Integer profileCount() {
         if(includesProfiles){
             return this.profiles.size();

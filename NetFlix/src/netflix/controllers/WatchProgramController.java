@@ -2,10 +2,7 @@ package netflix.controllers;
 
 import com.maurict.orm.Database;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import netflix.app.AccountManager;
 import netflix.models.Account;
 import netflix.models.Film;
@@ -34,6 +31,12 @@ public class WatchProgramController extends Controller {
     private TextField textFieldMinutesWatched;
 
     @FXML
+    private Slider sldPercent;
+
+    @FXML
+    private Label lblPercent;
+
+    @FXML
     private void btnWatchFilm_Click(){
         try {
             labelMessage.setVisible(false);
@@ -44,8 +47,10 @@ public class WatchProgramController extends Controller {
                 watchedProgram.profileId = AccountManager.selectedProfile.profileId;
                 watchedProgram.programId = AccountManager.selectedProgram.programId;
                 watchedProgram.timeWatched = minutesWatched;
+                sldPercent.setValue(watchedProgram.getPercentageWatched());
+                lblPercent.setText(watchedProgram.getPercentageWatched()+"%");
                 db.add(watchedProgram);
-                }
+            }
 
         } catch (Exception e){
             labelMessage.setVisible(true);

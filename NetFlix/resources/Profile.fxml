@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.ProfileController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.ProfileController">
    <children>
-      <Button layoutX="187.0" layoutY="140.0" mnemonicParsing="false" onAction="#btnAddProfile_Click" text="Add Profile" />
-      <ComboBox fx:id="cbProfiles" layoutX="23.0" layoutY="82.0" onAction="#cbProfiles_Change" prefWidth="150.0" />
-      <Button layoutX="423.0" layoutY="286.0" mnemonicParsing="false" onAction="#btnReturn_Click" text="Return" />
-      <Button fx:id="btnDelete" layoutX="310.0" layoutY="82.0" mnemonicParsing="false" onAction="#btnDelete_Click" prefHeight="39.0" prefWidth="113.0" text="Delete" />
-      <Button fx:id="btnWatch" layoutX="187.0" layoutY="82.0" mnemonicParsing="false" onAction="#btnWatch_Click" prefHeight="39.0" prefWidth="113.0" text="Watch" />
+      <Button layoutX="180.0" layoutY="103.0" mnemonicParsing="false" onAction="#btnAddProfile_Click" prefHeight="39.0" prefWidth="240.0" style="-fx-background-color: #cf6d67; -fx-text-fill: #FFF;" text="Add Profile" />
+      <ComboBox fx:id="cbProfiles" layoutX="180.0" layoutY="160.0" onAction="#cbProfiles_Change" prefHeight="39.0" prefWidth="240.0" promptText="Select profile" style="-fx-font-size: 14;" />
+      <Button layoutX="26.0" layoutY="24.0" mnemonicParsing="false" onAction="#btnReturn_Click" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #444; -fx-text-fill: #FFF;" text="&lt; Back" />
+      <Button fx:id="btnDelete" layoutX="306.0" layoutY="208.0" mnemonicParsing="false" onAction="#btnDelete_Click" prefHeight="39.0" prefWidth="113.0" style="-fx-background-color: #c74740; -fx-text-fill: #FFF;" text="Delete" />
+      <Button fx:id="btnWatch" layoutX="181.0" layoutY="208.0" mnemonicParsing="false" onAction="#btnWatch_Click" prefHeight="39.0" prefWidth="113.0" style="-fx-background-color: #444; -fx-text-fill: #FFF;" text="Watch Film" />
+      <Label layoutX="200.0" layoutY="16.0" text="Profile manager" textFill="RED">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

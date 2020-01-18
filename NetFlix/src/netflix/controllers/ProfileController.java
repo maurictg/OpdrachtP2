@@ -5,14 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import netflix.app.AccountManager;
+import netflix.models.Account;
 import netflix.models.Profile;
 
 import java.util.ArrayList;
 
 public class ProfileController extends Controller {
-
-    private ArrayList<Object> profiles;
-
     @FXML
     private ComboBox cbProfiles;
 
@@ -38,9 +36,11 @@ public class ProfileController extends Controller {
         Database db = Database.global;
         try{
             db.remove(AccountManager.selectedProfile);
+            //Clears the profiles. So the next time the profiles are needed they will be queried from the database
+            AccountManager.selected.clearProfiles();
             this.show("Home");
         } catch (Exception e){
-
+            e.printStackTrace();
         }
     }
 
@@ -51,8 +51,7 @@ public class ProfileController extends Controller {
 
     @FXML
     public void cbProfiles_Change() {
-        for (Object profile : profiles) {
-            Profile a = (Profile)profile;
+        for (Profile a : AccountManager.selected.getProfiles()) {
             if(a.profileName.equals((String)cbProfiles.getValue())){
                 AccountManager.selectedProfile = a;
                 AccountManager.isEdit = true;
@@ -67,12 +66,7 @@ public class ProfileController extends Controller {
         btnDelete.setVisible(false);
         btnWatch.setVisible(true);
         try{
-            profiles = new Profile().select().toList();
-            for (Object o: profiles) {
-                if (((Profile)o).accountId == AccountManager.selected.accountId){
-                    cbProfiles.getItems().add(((Profile)o).profileName);
-                }
-            }
+            AccountManager.selected.getProfiles().forEach((f) -> cbProfiles.getItems().add(f.profileName));
         }catch (Exception e){
             e.printStackTrace();
         }

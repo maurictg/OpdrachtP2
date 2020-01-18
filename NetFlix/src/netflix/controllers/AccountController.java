@@ -8,6 +8,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import netflix.app.AccountManager;
+import netflix.app.Cache;
 import netflix.models.Account;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -131,7 +132,6 @@ public class AccountController extends Controller {
         account.number = Integer.parseInt(tbNumber.getText());
         account.extension = tbExtension.getText();
 
-        //db.add(account);
         Database db = Database.global;
 
         if(!AccountManager.isEdit){
@@ -154,6 +154,7 @@ public class AccountController extends Controller {
             } else{
                 db.update(account);
             }
+            Cache.cacheAccounts(true); //Refresh cached account
             this.show("Home");
         } catch (Exception e){
             e.printStackTrace();

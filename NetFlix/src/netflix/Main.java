@@ -3,6 +3,7 @@ package netflix;
 import com.maurict.orm.Database;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import netflix.app.Cache;
 import netflix.controllers.Controller;
 import netflix.models.Film;
 
@@ -12,7 +13,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         //Create connection to the database
         Database db = new Database("localhost","netflix");
-        System.out.println(Film.longestFilmAgeSixteen());
+        Cache.cacheAccounts();
 
         //Create a controller, just because we need to start the gui
         Controller c = new Controller();

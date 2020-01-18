@@ -6,15 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import netflix.app.AccountManager;
+import netflix.app.Cache;
 import netflix.models.Account;
-
-import java.util.ArrayList;
 
 
 public class HomeController extends Controller {
-
-    //Save accounts in arraylist
-    private ArrayList<Object> accounts;
 
     @FXML
     private ComboBox cbAccounts;
@@ -58,8 +54,7 @@ public class HomeController extends Controller {
 
     @FXML
     public void cbAccounts_Change() {
-        for (Object account : accounts) {
-            Account a = (Account)account;
+        for (Account a : Cache.accounts) {
             if(a.accountName.equals((String)cbAccounts.getValue())){
                 AccountManager.selected = a;
                 AccountManager.isEdit = true;
@@ -74,12 +69,12 @@ public class HomeController extends Controller {
         btnEditAccount.setVisible(false);
         btnManageProfiles.setVisible(false);
         try{
-            accounts = new Account().select().toList();
-            for (Object o: accounts) {
-                cbAccounts.getItems().add(((Account)o).accountName);
+            for (Account o: Cache.accounts) {
+                cbAccounts.getItems().add(o.accountName);
             }
         }catch (Exception e){
             e.printStackTrace();
         }
+        AccountManager.isEdit = false;
     }
 }

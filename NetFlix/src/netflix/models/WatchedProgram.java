@@ -18,7 +18,7 @@ public class WatchedProgram extends Table {
     private boolean includesProfile;
 
     public WatchedProgram() {
-        super("WatchedPrograms", "watchedProgramId");
+        super("WatchedProgram", "watchedProgramId");
         this.includesProfile = false;
         this.includesProgram = false;
     }

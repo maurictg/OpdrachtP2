@@ -31,9 +31,10 @@ public class AddProfileController extends Controller {
             profile.accountId = AccountManager.selected.accountId;
             try {
                 db.add(profile);
+                AccountManager.selected.clearProfiles();
                 this.show("Profile");
             } catch (Exception e){
-
+                e.printStackTrace();
             }
 
         }
