@@ -13,36 +13,4 @@ public class Program extends Table {
     public Program(){
         super("Programs", "programId");
     }
-
-    public static int ProgramLength(int programId){
-        try {
-            ArrayList<Object> programs = new Program().select().toList();
-            for (int i = 0; i < programs.size(); i++){
-                if (((Program)programs.get(i)).programId == programId){
-                    return ((((Program) programs.get(i)).lengthInMinutes));
-                }
-            }
-        } catch (Exception e){
-
-        }
-        return -1;
-    }
-
-    public static Program getProgramFromProgramId(int programId){
-        try {
-            ArrayList<Object> programs = new Program().select().toList();
-            for (int i = 0; i < programs.size(); i++){
-                if (((Program)programs.get(i)).programId == programId){
-                    return ((Program)programs.get(i));
-                }
-            }
-
-            return (Program)new Program().find(programId);
-        } catch (Exception e){
-
-        }
-        return new Program();
-    }
-
-
 }
