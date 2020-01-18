@@ -23,8 +23,8 @@ public class WatchedProgram extends Table {
         this.includesProgram = false;
     }
 
-    public double getPercentageWatched() {
-        return (double)((this.timeWatched / this.getProgram().lengthInMinutes) * 100);
+    public float getPercentageWatched() {
+        return ((float)(this.timeWatched*100 / this.getProgram().lengthInMinutes));
     }
 
     public Program getProgram() {

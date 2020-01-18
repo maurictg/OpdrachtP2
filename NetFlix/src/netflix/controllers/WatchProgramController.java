@@ -3,13 +3,14 @@ package netflix.controllers;
 import com.maurict.orm.Database;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import netflix.app.AccountManager;
 import netflix.app.Cache;
-import netflix.models.Account;
 import netflix.models.Film;
 import netflix.models.Program;
 import netflix.models.WatchedProgram;
 
+import java.time.Duration;
 import java.util.ArrayList;
 
 public class WatchProgramController extends Controller {
@@ -19,6 +20,9 @@ public class WatchProgramController extends Controller {
 
     @FXML
     private ComboBox cbFilms;
+
+    @FXML
+    private ListView tvFilms;
 
     @FXML
     private Label labelMessage;
@@ -42,13 +46,17 @@ public class WatchProgramController extends Controller {
             int minutesWatched = Integer.parseInt(textFieldMinutesWatched.getText());
             if (minutesWatched >= 0){
                 Database db = Database.global;
+
                 WatchedProgram watchedProgram = new WatchedProgram();
                 watchedProgram.profileId = AccountManager.selectedProfile.profileId;
                 watchedProgram.programId = AccountManager.selectedProgram.programId;
                 watchedProgram.timeWatched = minutesWatched;
-                sldPercent.setValue(watchedProgram.getPercentageWatched());
-                lblPercent.setText(watchedProgram.getPercentageWatched()+"%");
                 db.add(watchedProgram);
+                watchedPrograms.add(watchedProgram);
+                new Alert(Alert.AlertType.INFORMATION, "Watch program saved!").show();
+                lblPercent.setText((float)(watchedProgram.timeWatched*100 / AccountManager.selectedProgram.lengthInMinutes)+"%");
+                sldPercent.setValue(Math.round((float)(watchedProgram.timeWatched*100 / AccountManager.selectedProgram.lengthInMinutes)));
+                refreshTable();
             }
 
         } catch (Exception e){
@@ -81,7 +89,7 @@ public class WatchProgramController extends Controller {
         try{
             Cache.cachePrograms();
             Cache.cacheFilms();
-            watchedPrograms = new WatchedProgram().select().where("profileId", AccountManager.selectedProfile.accountId).toList();
+            watchedPrograms = new WatchedProgram().select().where("profileId", AccountManager.selectedProfile.profileId).toList();
             programIdsFromFilms = new ArrayList<>();
             for (Film o: Cache.films){
                 programIdsFromFilms.add(o.programId);
@@ -92,8 +100,27 @@ public class WatchProgramController extends Controller {
                     cbFilms.getItems().add(o.title);
                 }
             }
-        }catch (Exception e){
+
+            refreshTable();
+
+        } catch (Exception e){
             e.printStackTrace();
+        }
+    }
+
+    private void refreshTable(){
+        for (Object o : watchedPrograms){
+            WatchedProgram wp = (WatchedProgram)o;
+            StringBuilder sb = new StringBuilder();
+            for (Program p : Cache.programs){
+                if(p.programId == wp.programId){
+                    sb.append(p.title).append(" - watched: ");
+                    Duration d = Duration.ofMinutes(wp.timeWatched);
+                    sb.append(d.toHoursPart()).append(":").append(d.toMinutesPart());
+                    sb.append(" (").append((float)(wp.timeWatched*100 / p.lengthInMinutes)).append("%)");
+                    tvFilms.getItems().add(sb.toString());
+                }
+            }
         }
     }
 
