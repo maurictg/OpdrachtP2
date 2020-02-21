@@ -59,7 +59,8 @@ public class AvgWatchedPerSerieController extends Controller {
         if(avgWatched.size()>0){
             avgWatched.forEach((k,v) -> {
                 Duration d = Duration.ofMinutes(v);
-                result.append(k.title).append(" - ").append(d.toHoursPart()).append(":").append(d.toMinutesPart());
+                result.append(k.title).append(" - ").append(d.toHoursPart()).append(":").append(d.toMinutesPart())
+                        .append(" - ").append((float)(v*100 / k.lengthInMinutes)).append("%\n");
             });
         }
         else{

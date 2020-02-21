@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane opacity="0.95" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.AvgWatchedPerSeriePerAccountController">
+    <children>
+        <ComboBox fx:id="cbSeries" layoutX="63.0" layoutY="74.0" onAction="#cbSeries_Change" prefWidth="150.0" />
+        <TextArea fx:id="taData" layoutX="312.0" layoutY="74.0" prefHeight="200.0" prefWidth="266.0" />
+        <Button fx:id="btnReturn" layoutX="63.0" layoutY="235.0" mnemonicParsing="false" onAction="#btnReturn_Click" text="Return" />
+    </children>
+</AnchorPane>

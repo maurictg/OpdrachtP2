@@ -20,6 +20,9 @@ public class ProfileController extends Controller {
     @FXML
     private Button btnWatch;
 
+    @FXML
+    private Button btn_AverageWatched;
+
 
     @FXML
     public void btnAddProfile_Click(){
@@ -29,6 +32,11 @@ public class ProfileController extends Controller {
     @FXML
     public void btnReturn_Click(){
         this.show("Home");
+    }
+
+    @FXML
+    public void btnAvgWatch_Click(){
+        this.show("AvgWatchedPerSeriePerAccount");
     }
 
     @FXML
