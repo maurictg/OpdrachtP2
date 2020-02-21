@@ -80,17 +80,6 @@ public class Table {
         return this;
     }
 
-    public void ttt(){
-        try {
-            ArrayList<Object> aarts = new Account().select("name","password").where("name","Aart").toList();
-            for (Object o: aarts) {
-
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     //helper functions for where and the where function
     public Table where(String field, Object value) { return where(field,"=",value,"WHERE"); }
     public Table where(String field, String operator, Object value) { return where(field,operator,value,"WHERE"); }
