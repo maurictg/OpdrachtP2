@@ -59,21 +59,28 @@ public class WatchProgramController extends Controller {
 
         try{
             if (minutesWatched > 0){
-                Database db = Database.global;
+                if(minutesWatched <= AccountManager.selectedProgram.lengthInMinutes){
+                    Database db = Database.global;
 
-                WatchedProgram watchedProgram = new WatchedProgram();
-                watchedProgram.profileId = AccountManager.selectedProfile.profileId;
-                watchedProgram.programId = AccountManager.selectedProgram.programId;
-                watchedProgram.timeWatched = minutesWatched;
+                    WatchedProgram watchedProgram = new WatchedProgram();
+                    watchedProgram.profileId = AccountManager.selectedProfile.profileId;
+                    watchedProgram.programId = AccountManager.selectedProgram.programId;
+                    watchedProgram.timeWatched = minutesWatched;
 
-                db.add(watchedProgram);
-                watchedPrograms.add(watchedProgram);
-                new Alert(Alert.AlertType.INFORMATION, "Watch program saved!").show();
-                lblPercent.setText((float)(watchedProgram.timeWatched*100 / AccountManager.selectedProgram.lengthInMinutes)+"%");
-                sldPercent.setValue(Math.round((float)(watchedProgram.timeWatched*100 / AccountManager.selectedProgram.lengthInMinutes)));
-                refreshTable();
-                btnWatchProgram.setVisible(false);
-                cbPrograms.setValue("Select a Program");
+                    db.add(watchedProgram);
+                    watchedPrograms.add(watchedProgram);
+                    new Alert(Alert.AlertType.INFORMATION, "Watch program saved!").show();
+                    lblPercent.setText((float)(watchedProgram.timeWatched*100 / AccountManager.selectedProgram.lengthInMinutes)+"%");
+                    sldPercent.setValue(Math.round((float)(watchedProgram.timeWatched*100 / AccountManager.selectedProgram.lengthInMinutes)));
+                    refreshTable();
+                    btnWatchProgram.setVisible(false);
+                    btnWatchFilm.setVisible(false);
+                    AccountManager.selectedProgram = null;
+                    cbPrograms.setValue(null);
+                }else{
+                    new Alert(Alert.AlertType.WARNING, "Please don't watch longer than "+AccountManager.selectedProgram.lengthInMinutes+" minutes").show();
+                }
+
             } else{
                 new Alert(Alert.AlertType.WARNING, "Please watch at least 1 minute").show();
             }
@@ -97,21 +104,28 @@ public class WatchProgramController extends Controller {
             labelMessage.setVisible(false);
             int minutesWatched = Integer.parseInt(textFieldMinutesWatched.getText());
             if (minutesWatched > 0){
-                Database db = Database.global;
+                if(minutesWatched <= AccountManager.selectedProgram.lengthInMinutes){
+                    Database db = Database.global;
 
-                WatchedProgram watchedProgram = new WatchedProgram();
-                watchedProgram.profileId = AccountManager.selectedProfile.profileId;
-                watchedProgram.programId = AccountManager.selectedProgram.programId;
-                watchedProgram.timeWatched = minutesWatched;
+                    WatchedProgram watchedProgram = new WatchedProgram();
+                    watchedProgram.profileId = AccountManager.selectedProfile.profileId;
+                    watchedProgram.programId = AccountManager.selectedProgram.programId;
+                    watchedProgram.timeWatched = minutesWatched;
 
-                db.add(watchedProgram);
-                watchedPrograms.add(watchedProgram);
-                new Alert(Alert.AlertType.INFORMATION, "Watch program saved!").show();
-                lblPercent.setText((float)(watchedProgram.timeWatched*100 / AccountManager.selectedProgram.lengthInMinutes)+"%");
-                sldPercent.setValue(Math.round((float)(watchedProgram.timeWatched*100 / AccountManager.selectedProgram.lengthInMinutes)));
-                refreshTable();
-                btnWatchFilm.setVisible(false);
-                cbFilms.setValue("Select a Film");
+                    db.add(watchedProgram);
+                    watchedPrograms.add(watchedProgram);
+                    new Alert(Alert.AlertType.INFORMATION, "Watch program saved!").show();
+                    lblPercent.setText((float)(watchedProgram.timeWatched*100 / AccountManager.selectedProgram.lengthInMinutes)+"%");
+                    sldPercent.setValue(Math.round((float)(watchedProgram.timeWatched*100 / AccountManager.selectedProgram.lengthInMinutes)));
+                    refreshTable();
+                    btnWatchFilm.setVisible(false);
+                    btnWatchProgram.setVisible(false);
+                    AccountManager.selectedProgram = null;
+                    cbFilms.setValue(null);
+                } else{
+                    new Alert(Alert.AlertType.WARNING, "Please don't watch longer than "+AccountManager.selectedProgram.lengthInMinutes+" minutes").show();
+                }
+
             } else{
                 new Alert(Alert.AlertType.WARNING, "Please watch at least 1 minute").show();
             }
@@ -155,7 +169,6 @@ public class WatchProgramController extends Controller {
     }
 
 
-
     @Override
     void onLoad() {
         labelMessage.setVisible(false);
@@ -184,6 +197,16 @@ public class WatchProgramController extends Controller {
         } catch (Exception e){
             e.printStackTrace();
         }
+
+        sldPercent.valueProperty().addListener((observable, oldValue, newValue) -> {
+
+            if(AccountManager.selectedProgram != null){
+                int length = AccountManager.selectedProgram.lengthInMinutes;
+                int val = (int) (Math.round(sldPercent.getValue() * length) / 100);
+                textFieldMinutesWatched.setText(val+"");
+                lblPercent.setText(((int)Math.round(sldPercent.getValue()))+"%");
+            }
+        });
     }
 
     private void refreshTable(){
