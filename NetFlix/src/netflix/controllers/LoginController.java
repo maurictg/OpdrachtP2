@@ -27,4 +27,8 @@ public class LoginController extends Controller {
         }
     }
 
+    @Override
+    void onLoad() {
+
+    }
 }

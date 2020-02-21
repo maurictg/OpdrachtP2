@@ -40,4 +40,8 @@ public class AddProfileController extends Controller {
         }
     }
 
+    @Override
+    void onLoad() {
+
+    }
 }

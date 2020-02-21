@@ -17,7 +17,7 @@ public class ViewsController extends Controller {
     @FXML
     private void btnViewAvgWatchedPerEpisode_Click() {
 
-
+        this.show("AvgWatchedPerSerie");
     }
 
     @FXML
@@ -27,6 +27,7 @@ public class ViewsController extends Controller {
 
     @FXML
     private void btnViewWatchedMoviesPerAccount_Click() {
+
         this.show("FilmsWatchedByAccount");
 
     }
@@ -89,5 +90,10 @@ public class ViewsController extends Controller {
     @FXML
     private void btnBack_Click() {
         this.show("Home");
+    }
+
+    @Override
+    void onLoad() {
+
     }
 }

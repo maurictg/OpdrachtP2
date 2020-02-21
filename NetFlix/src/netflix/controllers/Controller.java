@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public abstract class Controller implements Initializable {
 
     //Save the stage to make switching easy
     private Stage stage;
@@ -45,7 +45,7 @@ public class Controller implements Initializable {
     }
 
     //Overridable method
-    void onLoad() { }
+    abstract void onLoad();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

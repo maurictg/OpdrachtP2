@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import netflix.app.Cache;
 import netflix.controllers.Controller;
+import netflix.controllers.HomeController;
 
 public class Main extends Application {
 
@@ -15,7 +16,7 @@ public class Main extends Application {
         Cache.cacheAccounts();
 
         //Create a controller, just because we need to start the gui
-        Controller c = new Controller();
+        HomeController c = new HomeController();
         c.setStage(stage);
         c.show("Home", "Netflix Statistix - Lauran (2145984), Aart (2155886) en Maurice (2155791)", 900, 600);
 //        c.show("Login", "Netflix Statistix", 600, 400);

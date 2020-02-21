@@ -6,6 +6,8 @@
 
 package com.maurict.orm;
 
+import netflix.models.Account;
+
 import java.util.*;
 
 public class Table {
@@ -76,6 +78,17 @@ public class Table {
     public Table selectTop(int amount, String... columns){
         qB.append("SELECT TOP(").append(amount).append(") ").append((columns.length>0)?String.join(",", columns):"*").append(" FROM ").append(name);
         return this;
+    }
+
+    public void ttt(){
+        try {
+            ArrayList<Object> aarts = new Account().select("name","password").where("name","Aart").toList();
+            for (Object o: aarts) {
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //helper functions for where and the where function

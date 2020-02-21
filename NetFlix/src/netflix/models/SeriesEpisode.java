@@ -16,7 +16,7 @@ public class SeriesEpisode extends Table {
     private boolean includesProgram;
 
     public SeriesEpisode(){
-        super("ProgramSeries", "seriesEpisodeId");
+        super("SeriesEpisode", "seriesEpisodeId");
         this.includesSerie = false;
         this.includesProgram = false;
     }

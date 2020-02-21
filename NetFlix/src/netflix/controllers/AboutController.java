@@ -18,4 +18,9 @@ public class AboutController extends Controller {
     private void btnBack_Click() {
         this.show("Home");
     }
+
+    @Override
+    void onLoad() {
+
+    }
 }
