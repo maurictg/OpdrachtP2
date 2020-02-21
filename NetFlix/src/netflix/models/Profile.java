@@ -1,4 +1,5 @@
 package netflix.models;
+import com.maurict.orm.Database;
 import com.maurict.orm.Table;
 
 import java.util.ArrayList;
@@ -80,6 +81,13 @@ public class Profile extends Table {
             e.printStackTrace();
             return false;
         }
+    }
+
+    @Override
+    public boolean delete() throws Exception {
+        boolean isDeleted = Database.global.raw("DELETE FROM WatchedProgram WHERE profileId = "+this.profileId);
+        System.out.println(isDeleted);
+        return super.delete();
     }
 
 }

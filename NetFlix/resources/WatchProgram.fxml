@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="480.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.WatchProgramController">
+<AnchorPane prefHeight="462.0" prefWidth="762.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.WatchProgramController">
    <children>
       <Button fx:id="btnWatchFilm" layoutX="31.0" layoutY="150.0" mnemonicParsing="false" onAction="#btnWatchFilm_Click" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #444; -fx-text-fill: #FFF;" text="Watch Film">
          <font>
@@ -12,11 +12,11 @@
          </font></Button>
       <Label layoutX="31.0" layoutY="76.0" text="Films" textFill="WHITE" />
       <ComboBox fx:id="cbFilms" layoutX="31.0" layoutY="105.0" onAction="#cbFilms_Change" prefHeight="34.0" prefWidth="230.0" promptText="Select a Film" style="-fx-font-size: 14;" />
-      <Label layoutX="328.0" layoutY="76.0" text="Watch for how long? (minutes)" textFill="WHITE" />
-      <TextField fx:id="textFieldMinutesWatched" layoutX="328.0" layoutY="109.0" text="0" />
-      <Label fx:id="labelMessage" layoutX="334.0" layoutY="167.0" text="Not a correct number." textFill="WHITE" />
-      <Slider fx:id="sldPercent" layoutX="328.0" layoutY="146.0" prefHeight="14.0" prefWidth="149.0" />
-      <Label fx:id="lblPercent" layoutX="483.0" layoutY="144.0" text="0%" textFill="RED" />
+      <Label layoutX="576.0" layoutY="85.0" text="Watch for how long? (minutes)" textFill="WHITE" />
+      <TextField fx:id="textFieldMinutesWatched" layoutX="576.0" layoutY="118.0" text="0" />
+      <Label fx:id="labelMessage" layoutX="582.0" layoutY="176.0" text="Not a correct number." textFill="WHITE" />
+      <Slider fx:id="sldPercent" layoutX="576.0" layoutY="155.0" prefHeight="14.0" prefWidth="149.0" />
+      <Label fx:id="lblPercent" layoutX="731.0" layoutY="153.0" text="0%" textFill="RED" />
       <Label layoutX="247.0" layoutY="14.0" text="Watched programs" textFill="RED">
          <font>
             <Font size="26.0" />
@@ -30,5 +30,12 @@
       <Label layoutX="31.0" layoutY="224.0" text="Watched films" textFill="WHITE" />
       <ListView fx:id="tvFilms" layoutX="31.0" layoutY="249.0" prefHeight="178.0" prefWidth="471.0" />
       <Label fx:id="lblFullyWatched" layoutX="31.0" layoutY="195.0" text="The selected film is fully watched by 0 people" textFill="RED" />
+      <Button fx:id="btnWatchProgram" layoutX="303.0" layoutY="150.0" mnemonicParsing="false" onAction="#btnWatchProgram_Click" prefHeight="34.0" prefWidth="230.0" style="-fx-background-color: #444; -fx-text-fill: #FFF;" text="Watch Program">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="303.0" layoutY="76.0" text="Programs" textFill="WHITE" />
+      <ComboBox fx:id="cbPrograms" layoutX="303.0" layoutY="105.0" onAction="#cbPrograms_Change" prefHeight="34.0" prefWidth="230.0" promptText="Select a Program" style="-fx-font-size: 14;" />
    </children>
 </AnchorPane>
