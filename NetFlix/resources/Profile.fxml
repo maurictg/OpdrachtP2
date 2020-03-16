@@ -1,22 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.ProfileController">
    <children>
-      <Button layoutX="180.0" layoutY="103.0" mnemonicParsing="false" onAction="#btnAddProfile_Click" prefHeight="39.0" prefWidth="240.0" style="-fx-background-color: #cf6d67; -fx-text-fill: #FFF;" text="Add Profile" />
+      <Button layoutX="180.0" layoutY="103.0" mnemonicParsing="false" onAction="#btnAddProfile_Click" prefHeight="39.0" prefWidth="240.0" style="-fx-background-color: #cf6d67; -fx-text-fill: #FFF;" text="Add Profile">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
       <ComboBox fx:id="cbProfiles" layoutX="180.0" layoutY="160.0" onAction="#cbProfiles_Change" prefHeight="39.0" prefWidth="240.0" promptText="Select profile" style="-fx-font-size: 14;" />
       <Button layoutX="26.0" layoutY="24.0" mnemonicParsing="false" onAction="#btnReturn_Click" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #444; -fx-text-fill: #FFF;" text="&lt; Back" />
-      <Button fx:id="btnDelete" layoutX="306.0" layoutY="208.0" mnemonicParsing="false" onAction="#btnDelete_Click" prefHeight="39.0" prefWidth="113.0" style="-fx-background-color: #c74740; -fx-text-fill: #FFF;" text="Delete" />
-      <Button fx:id="btnWatch" layoutX="181.0" layoutY="208.0" mnemonicParsing="false" onAction="#btnWatch_Click" prefHeight="39.0" prefWidth="113.0" style="-fx-background-color: #444; -fx-text-fill: #FFF;" text="Films" />
+      <Button fx:id="btnDelete" layoutX="306.0" layoutY="208.0" mnemonicParsing="false" onAction="#btnDelete_Click" prefHeight="39.0" prefWidth="113.0" style="-fx-background-color: #c74740; -fx-text-fill: #FFF;" text="Delete">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect></Button>
+      <Button fx:id="btnWatch" layoutX="181.0" layoutY="208.0" mnemonicParsing="false" onAction="#btnWatch_Click" prefHeight="39.0" prefWidth="113.0" style="-fx-background-color: #444; -fx-text-fill: #FFF;" text="Films" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect></Button>
       <Label layoutX="200.0" layoutY="16.0" text="Profile manager" textFill="RED">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
       <Button layoutX="-61.0" layoutY="72.0" mnemonicParsing="false" text="Button" />
-      <Button fx:id="btn_AverageWatched" layoutX="181.0" layoutY="270.0" mnemonicParsing="false" onAction="#btnAvgWatch_Click" prefHeight="30.0" prefWidth="114.0" text="Button" />
+      <Button fx:id="btn_AverageWatched" layoutX="180.0" layoutY="257.0" mnemonicParsing="false" onAction="#btnAvgWatch_Click" prefHeight="38.0" prefWidth="240.0" style="-fx-background-color: #444;" text="Avg watched % per episode" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect></Button>
    </children>
 </AnchorPane>
