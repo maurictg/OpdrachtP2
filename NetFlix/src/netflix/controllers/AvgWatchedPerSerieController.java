@@ -27,7 +27,7 @@ public class AvgWatchedPerSerieController extends Controller {
 
     @FXML
     public void btnReturn_Click(){
-        this.show("Home");
+        this.show("Views");
     }
 
     @FXML

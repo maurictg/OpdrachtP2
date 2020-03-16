@@ -31,7 +31,7 @@ public class FilmsWatchedByAccountController extends Controller {
 
     @FXML
     public void btnReturn_Click(){
-        this.show("Home");
+        this.show("Views");
     }
 
 
