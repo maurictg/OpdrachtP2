@@ -1,15 +1,15 @@
 package netflix.controllers;
 
-import com.maurict.orm.Database;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
-import netflix.models.*;
+import netflix.models.Account;
+import netflix.models.Film;
+import netflix.models.Program;
+import netflix.models.WatchedProgram;
 
 import java.util.ArrayList;
 
 public class ViewsController extends Controller {
-
-    Database db = Database.global;
 
     @FXML
     private TextArea tbData;
@@ -36,7 +36,7 @@ public class ViewsController extends Controller {
     private void btnViewLongestMovieSixteenYears_Click() {
 
         Film film = new Film();
-        
+
         tbData.setText("Longest film: \n" + film.longestFilmAgeSixteen());
     }
 
@@ -72,17 +72,15 @@ public class ViewsController extends Controller {
     private void btnViewTimesWatched_Click() {
 
         try {
+            ArrayList<Object> films = new WatchedProgram().select().toList();
+            ArrayList<Program> watchedPrograms = new ArrayList<>();
 
+            for (int i = 0; i < films.size(); i++) {
 
-        ArrayList<Object> films = new WatchedProgram().select().toList();
-        ArrayList<Program> watchedPrograms = new ArrayList<>();
-
-        for (int i = 0; i < films.size(); i++) {
-
-            watchedPrograms.add((Program)films.get(i));
-            tbData.setText(((Program) films.get(i)).title);
-        }
-    } catch (Exception e) {
+                watchedPrograms.add((Program) films.get(i));
+                tbData.setText(((Program) films.get(i)).title);
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
