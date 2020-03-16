@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane opacity="0.95" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="netflix.controllers.AvgWatchedPerSerieController">
     <children>
-        <ComboBox fx:id="cbSeries" layoutX="63.0" layoutY="74.0" onAction="#cbSeries_Change" prefWidth="150.0" />
-        <TextArea fx:id="taData" layoutX="312.0" layoutY="74.0" prefHeight="200.0" prefWidth="200.0" />
-        <Button fx:id="btnReturn" layoutX="63.0" layoutY="235.0" mnemonicParsing="false" onAction="#btnReturn_Click" text="Return" />
+        <ComboBox fx:id="cbSeries" layoutX="98.0" layoutY="180.0" onAction="#cbSeries_Change" prefWidth="150.0" promptText="Select..." />
+        <TextArea fx:id="taData" layoutX="301.0" layoutY="180.0" prefHeight="200.0" prefWidth="241.0" promptText="Select a serie..." />
+        <Button fx:id="btnReturn" layoutX="743.0" layoutY="490.0" mnemonicParsing="false" onAction="#btnReturn_Click" style="-fx-background-color: #444;" text="Return" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect></Button>
+      <Label layoutX="98.0" layoutY="74.0" text="Average time watched per episode" textFill="RED">
+         <font>
+            <Font size="30.0" />
+         </font></Label>
     </children>
 </AnchorPane>

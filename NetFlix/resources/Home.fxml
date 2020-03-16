@@ -22,7 +22,7 @@
          <Cursor fx:constant="HAND" />
       </cursor>
     </MenuBar>
-   <Button fx:id="btnNewAccount" layoutX="320.0" layoutY="180.0" mnemonicParsing="false" onAction="#btnNewAccount_Click" prefHeight="38.0" prefWidth="260.0" style="-fx-background-color: #d65851;" text="Create new account" textFill="WHITE">
+   <Button fx:id="btnNewAccount" layoutX="319.0" layoutY="222.0" mnemonicParsing="false" onAction="#btnNewAccount_Click" prefHeight="38.0" prefWidth="260.0" style="-fx-background-color: #d65851;" text="Create new account" textFill="WHITE">
       <font>
          <Font size="16.0" />
       </font>
@@ -32,7 +32,7 @@
       <effect>
          <Glow />
       </effect></Button>
-    <Button fx:id="btnEditAccount" layoutX="320.0" layoutY="285.0" mnemonicParsing="false" onAction="#btnEditAccount_Click" prefHeight="38.0" prefWidth="115.0" style="-fx-background-color: #db807b;" text="Edit account" textFill="WHITE">
+    <Button fx:id="btnEditAccount" layoutX="319.0" layoutY="327.0" mnemonicParsing="false" onAction="#btnEditAccount_Click" prefHeight="38.0" prefWidth="115.0" style="-fx-background-color: #db807b;" text="Edit account" textFill="WHITE">
         <font>
             <Font size="16.0" />
         </font>
@@ -42,7 +42,7 @@
         <effect>
             <Glow />
         </effect></Button>
-   <Button fx:id="btnViews" layoutX="17.0" layoutY="161.0" mnemonicParsing="false" onAction="#btnViews_Click" prefHeight="31.0" prefWidth="115.0" style="-fx-background-color: #444;" text="Views" textFill="WHITE">
+   <Button fx:id="btnViews" layoutX="443.0" layoutY="381.0" mnemonicParsing="false" onAction="#btnViews_Click" prefHeight="38.0" prefWidth="136.0" style="-fx-background-color: #444;" text="Views" textFill="WHITE">
       <effect>
          <Glow />
       </effect>
@@ -53,8 +53,8 @@
          <Cursor fx:constant="HAND" />
       </cursor>
    </Button>
-   <ComboBox fx:id="cbAccounts" layoutX="320.0" layoutY="233.0" onAction="#cbAccounts_Change" prefHeight="26.0" prefWidth="260.0" promptText="Select an account" style="-fx-font-size: 16;" visibleRowCount="15" />
-   <Button fx:id="btnManageProfiles" layoutX="444.0" layoutY="285.0" mnemonicParsing="false" onAction="#btnManageProfiles_Click" style="-fx-background-color: #444;" text="Manage Profiles" textFill="WHITE">
+   <ComboBox fx:id="cbAccounts" layoutX="319.0" layoutY="275.0" onAction="#cbAccounts_Change" prefHeight="26.0" prefWidth="260.0" promptText="Select an account" style="-fx-font-size: 16;" visibleRowCount="15" />
+   <Button fx:id="btnManageProfiles" layoutX="443.0" layoutY="327.0" mnemonicParsing="false" onAction="#btnManageProfiles_Click" style="-fx-background-color: #444;" text="Manage Profiles" textFill="WHITE">
       <font>
          <Font size="16.0" />
       </font>
@@ -71,7 +71,7 @@
       </font>
    </Label>
    <Label layoutX="394.0" layoutY="76.0" text="Welcome to Netflix Stats!" textFill="WHITE" />
-   <Label layoutX="313.0" layoutY="125.0" text="Accounts &amp; profiles manangement" textFill="WHITE">
+   <Label layoutX="312.0" layoutY="167.0" text="Accounts &amp; profiles manangement" textFill="WHITE">
       <font>
          <Font size="18.0" />
       </font>
