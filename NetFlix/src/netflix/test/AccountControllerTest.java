@@ -1,3 +1,5 @@
+package netflix.test;
+
 import javafx.scene.control.TextField;
 import netflix.controllers.AccountController;
 import org.junit.jupiter.api.Assertions;

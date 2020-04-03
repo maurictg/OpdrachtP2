@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import netflix.app.AccountManager;
 import netflix.app.Cache;
+import netflix.app.Helper;
 import netflix.models.Film;
 import netflix.models.Program;
 import netflix.models.WatchedProgram;
@@ -202,7 +203,7 @@ public class WatchProgramController extends Controller {
 
             if(AccountManager.selectedProgram != null){
                 int length = AccountManager.selectedProgram.lengthInMinutes;
-                int val = (int) (Math.round(sldPercent.getValue() * length) / 100);
+                int val = (int) Math.round(Helper.getPartFromPercentage(sldPercent.getValue(), length));
                 textFieldMinutesWatched.setText(val+"");
                 lblPercent.setText(((int)Math.round(sldPercent.getValue()))+"%");
             }
@@ -219,7 +220,9 @@ public class WatchProgramController extends Controller {
                     sb.append(p.title).append(" - watched: ");
                     Duration d = Duration.ofMinutes(wp.timeWatched);
                     sb.append(d.toHoursPart()).append(":").append(d.toMinutesPart());
-                    sb.append(" (").append((float)(wp.timeWatched*100 / p.lengthInMinutes)).append("%)");
+                    double t = Helper.getPercentage(wp.timeWatched, p.lengthInMinutes);
+
+                    sb.append(" (").append(t).append("%)");
                     tvFilms.getItems().add(sb.toString());
                 }
             }
